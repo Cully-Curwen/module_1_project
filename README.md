@@ -1,2 +1,1 @@
-# module_1_project
-Quiz Game
+# mod-1-project
