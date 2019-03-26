@@ -13,12 +13,13 @@
 ActiveRecord::Schema.define(version: 2019_03_25_155909) do
 
   create_table "questions", force: :cascade do |t|
-    t.text "query"
-    t.string "answer"
-    t.string "option_1"
-    t.string "option_2"
-    t.string "option_3"
-    t.string "option_4"
+    t.string "category"
+    t.string "difficulty"
+    t.text "question"
+    t.string "correct_answer"
+    t.string "incorrect_answer_01"
+    t.string "incorrect_answer_02"
+    t.string "incorrect_answer_03"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
