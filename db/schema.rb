@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 2019_03_25_155909) do
     t.string "difficulty"
     t.text "question"
     t.string "correct_answer"
-    t.string "incorrect_answers"
+    t.string "incorrect_answer_01"
+    t.string "incorrect_answer_02"
+    t.string "incorrect_answer_03"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
