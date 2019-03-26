@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
 
+    has_many :tests
+
     def self.get_questions_data(url)
         response = RestClient.get(url)
         data = JSON.parse(response)
