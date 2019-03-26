@@ -29,18 +29,22 @@ class GameMaster
       @live = true
       @count += 1
       puts "Congratulations, you got that right!"
+      sleep 3
+      system "clear"
     else
       @live = false
+      system "clear"
       puts "You got that wrong!"
+      puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
       puts "You got #{@count - 1} right"
       puts "Now Go!!!"
+      @prompt.select("*"*20, "Leave")
     end
   end
 
   def session
     @live = true
     while @live
-      puts "*" * 20
       puts "Question number #{@count} is:"
       self.generate_question
       question_decoded = @coder.decode(@question.question)
