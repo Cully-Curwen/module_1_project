@@ -16,11 +16,14 @@ class LandingPage
     while live
       system "clear"
       querry = format("Options")
-      options = ["New Game", "High Scores", "Account Management", "Exit"].map{ |string| format(string) }
+      options = ["Lets Go", "Trial by Category", "High Scores", "Account Management", "Exit"].map{ |string| format(string) }
       case @prompt.select(querry, options)
-      when format("New Game")
+      when format("Lets Go")
         system "clear"
         GameMaster.run(user: @user)
+      when format("Trial by Category")
+        system "clear"
+        GameMaster.run(user: @user, category: Category.select)
       when format("High Scores")
         system "clear"
         # link to leaderboards
@@ -29,6 +32,7 @@ class LandingPage
         system "clear"
         UserAccount.edit_user
       when format("Exit")
+        system "clear"
         live = false
       end
     end
