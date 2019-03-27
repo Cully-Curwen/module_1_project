@@ -1,13 +1,14 @@
 class User < ActiveRecord::Base
 
     has_many :tests
+    has_many :questions, through: :tests
 
     @prompt = TTY::Prompt.new
 
     validates :name, presence: true
     validates :password, presence: true
 
-    def self.resgister
+    def self.register
         name_str = @prompt.ask('Username:')
         password_str = @prompt.ask('Password:')
         User.find_or_create_by(name: name_str, password: password_str)

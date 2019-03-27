@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
 
     has_many :tests
+    has_many :users, through: :tests
 
     def self.get_questions_data(url)
         response = RestClient.get(url)
