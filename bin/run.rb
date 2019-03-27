@@ -8,6 +8,5 @@ require_relative '../config/environment'
   while live
     system "clear"
     Styling.intro_graphic
-    Styling.sam_say("Memes")
     Welcome.new_page
   end

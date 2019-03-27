@@ -4,8 +4,8 @@ class Options
 @prompt = TTY::Prompt.new
 
 def selection
-  choices = ["YOLO I can handle any question", "I'd like to choose my categories", "Who do you think I am...I choose by difficulty"]
-  case @prompt.select("How would you like to sort your quiz?", choices)
+  choices = [Styling.centre("YOLO I can handle any question"), Styling.centre("I'd like to choose my categories"), Styling.centre("Who do you think I am...I choose by difficulty")]
+  case @prompt.select(Styling.centre("How would you like to sort your quiz?"), choices, help_color: :hidden)
   when "YOLO I can handle any question"
     #add the normal random question method here
   when "I'd like to choose my categories"
@@ -20,7 +20,7 @@ end
 def find_question_category
   search_str = ""
   category_choices = ["General Knowledge", "Books", "Films", "Music", "TV", "Games", "Computer Science", "History",  "Sports", "Anime", "Cartoons", "Go Back"]
-  case @prompt.select("Choose a category:", category_choices)
+  case @prompt.select("Choose a category:", category_choices, help_color: :hidden)
   when "General Knowledge"
     search_str = "General Knowledge"
   when "Books"
