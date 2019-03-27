@@ -2,7 +2,10 @@ class Styling
 
   PROMPT = TTY::Prompt.new
   FONT = TTY::Font.new(:doom)
-  PASTEL = Pastel.new
+  @PASTEL = Pastel.new
+  WIDTH = TTY::Screen.width
+  HEIGHT = TTY::Screen.height
+
 
 def self.puts_super_super_fast(str)
     str
@@ -51,7 +54,14 @@ def self.puts_super_super_fast(str)
   end
 
   def self.centre(str)
-    str.center(200)
+    str_numb = str.size
+    str_numb = str_numb/2
+    numb = WIDTH
+    str.center(numb - str_numb)
+  end
+
+  def self.landing_page(str)
+      @PASTEL.bright_white.on_bright_black.bold(Styling.centre("#{str}"))
   end
 
   def self.intro_graphic
@@ -120,9 +130,31 @@ system 'clear'
 sleep 0.75
 end
 
-# def fake_loading_bar
-
-# end
+def self.smart_graphic
+  system 'clear'
+                    Styling.puts_super_super_fast "
+                                                                                                                                                        ???????           ???????     
+                                                                                                                                                      ??:::::::??       ??:::::::??   
+                       SSSSSSSSSSSSSSS MMMMMMMM               MMMMMMMM               AAA               RRRRRRRRRRRRRRRRR   TTTTTTTTTTTTTTTTTTTTTTT  ??:::::::::::?    ??:::::::::::?  
+                     SS:::::::::::::::SM:::::::M             M:::::::M              A:::A              R::::::::::::::::R  T:::::::::::::::::::::T ?:::::????:::::?  ?:::::????:::::? 
+                    S:::::SSSSSS::::::SM::::::::M           M::::::::M             A:::::A             R::::::RRRRRR:::::R T:::::::::::::::::::::T ?::::?    ?::::?  ?::::?    ?::::? 
+                    S:::::S     SSSSSSSM:::::::::M         M:::::::::M            A:::::::A            RR:::::R     R:::::RT:::::TT:::::::TT:::::T ?::::?     ?::::? ?::::?     ?::::?
+                    S:::::S            M::::::::::M       M::::::::::M           A:::::::::A             R::::R     R:::::RTTTTTT  T:::::T  TTTTTT ??????     ?::::? ??????     ?::::?
+                    S:::::S            M:::::::::::M     M:::::::::::M          A:::::A:::::A            R::::R     R:::::R        T:::::T                   ?::::?            ?::::? 
+                     S::::SSSS         M:::::::M::::M   M::::M:::::::M         A:::::A A:::::A           R::::RRRRRR:::::R         T:::::T                  ?::::?            ?::::?  
+                      SS::::::SSSSS    M::::::M M::::M M::::M M::::::M        A:::::A   A:::::A          R:::::::::::::RR          T:::::T                 ?::::?            ?::::?   
+                        SSS::::::::SS  M::::::M  M::::M::::M  M::::::M       A:::::A     A:::::A         R::::RRRRRR:::::R         T:::::T                ?::::?            ?::::?    
+                           SSSSSS::::S M::::::M   M:::::::M   M::::::M      A:::::AAAAAAAAA:::::A        R::::R     R:::::R        T:::::T               ?::::?            ?::::?     
+                                S:::::SM::::::M    M:::::M    M::::::M     A:::::::::::::::::::::A       R::::R     R:::::R        T:::::T               ?::::?            ?::::?     
+                                S:::::SM::::::M     MMMMM     M::::::M    A:::::AAAAAAAAAAAAA:::::A      R::::R     R:::::R        T:::::T               ??::??            ??::??     
+                    SSSSSSS     S:::::SM::::::M               M::::::M   A:::::A             A:::::A   RR:::::R     R:::::R      TT:::::::TT              ????              ????      
+                    S::::::SSSSSS:::::SM::::::M               M::::::M  A:::::A               A:::::A  R::::::R     R:::::R      T:::::::::T                                          
+                    S:::::::::::::::SS M::::::M               M::::::M A:::::A                 A:::::A R::::::R     R:::::R      T:::::::::T              ???               ???       
+                     SSSSSSSSSSSSSSS   MMMMMMMM               MMMMMMMMAAAAAAA                   AAAAAAARRRRRRRR     RRRRRRR      TTTTTTTTTTT             ??:??             ??:??      
+                                                                                                                                                          ???               ???       
+                    "               
+sleep 0.75
+end
 
 def self.sam_say(str)
     %x(say '#{str}') 
