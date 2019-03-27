@@ -1,6 +1,6 @@
 class Welcome
 
-@prompt = TTY::Prompt.new(active_color: :cyan)
+@prompt = TTY::Prompt.new
 @FONT = TTY::Font.new(:doom)
 @PASTEL = Pastel.new
 
@@ -12,7 +12,7 @@ def self.run(user)
 end
 
 def self.new_page
-    choices = {Styling.centre("Sign-in") => 1, Styling.centre("New User") => 2}
+    choices = {Styling.box_this("I'm Back!") => 1, Styling.centre("I'm new!!") => 2}
     case @prompt.select(Styling.landing_page("What you want?"), choices, help_color: :hidden) 
     when 1
         user = User.sign_in

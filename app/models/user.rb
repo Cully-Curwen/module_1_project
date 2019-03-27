@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
         User.find_or_create_by(name: name_str, password: password_str)
         if User.find_by(name: name_str, password: password_str)
         else
-            puts "Incorrect Values"
+            puts Styling.centre("Incorrect Values")
             User.register
         end
     end

@@ -5,7 +5,13 @@ class Styling
   @PASTEL = Pastel.new
   WIDTH = TTY::Screen.width
   HEIGHT = TTY::Screen.height
-
+  
+def self.box_this(str)
+  box = TTY::Box.frame(width: 60, height: 10, align: :center, padding: 4) do
+        "#{str}"
+  end
+  puts box
+end
 
 def self.puts_super_super_fast(str)
     str
@@ -153,11 +159,11 @@ def self.smart_graphic
                      SSSSSSSSSSSSSSS   MMMMMMMM               MMMMMMMMAAAAAAA                   AAAAAAARRRRRRRR     RRRRRRR      TTTTTTTTTTT             ??:??             ??:??      
                                                                                                                                                           ???               ???       
                     "               
-sleep 0.75
+
 end
 
-def self.sam_say(str)
-    %x(say '#{str}') 
-end
+# def self.sam_say(str)
+#     %x(say '#{str}') 
+# end
 
 end
