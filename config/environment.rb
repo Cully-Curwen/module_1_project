@@ -11,5 +11,3 @@ ActiveRecord::Base.logger = Logger.new(STDOUT)
 require_all 'app'
 
 # Question.get_questions_data("https://opentdb.com/api.php?amount=50&category=35&type=multiple")
-
-# User.create_password_column
