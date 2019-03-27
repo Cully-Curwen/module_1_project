@@ -25,3 +25,8 @@ task :clean_install do
     User.destroy_all
     Test.destroy_all
 end
+
+desc 'Run the Game'
+task :run do
+    ruby bin/run.rb 
+end
