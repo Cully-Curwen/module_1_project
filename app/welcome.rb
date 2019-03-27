@@ -12,7 +12,7 @@ end
 
 def self.new_page
     choices = [Styling.centre("Sign-in"), Styling.centre("New User")]
-    case @prompt.select(Styling.centre("Which page would you like to proceed to?"), choices, help_color: :hidden) 
+    case @prompt.select(Styling.landing_page("Which page would you like to proceed to?"), choices, help_color: :hidden) 
     when Styling.centre("Sign-in")
         user = User.sign_in
         self.run(user)

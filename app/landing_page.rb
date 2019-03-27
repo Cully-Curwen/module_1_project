@@ -15,22 +15,22 @@ class LandingPage
     live = true
     while live
       system "clear"
-      querry = format("Options")
-      options = ["Lets Go", "Trial by Category", "High Scores", "Account Management", "Exit"].map{ |string| format(string) }
-      case @prompt.select(querry, options)
-      when format("Lets Go")
+      querry = format(Styling.landing_page("Options"))
+      options = [Styling.centre("Lets Go"), Styling.centre("Trial by Category"), Styling.centre("High Scores"), Styling.centre("Account Management"), Styling.centre("Exit")].map{ |string| format(string) }
+      case @prompt.select(querry, options, help_color: :hidden)
+      when format(Styling.centre("Lets Go"))
         system "clear"
         GameMaster.run(user: @user)
-      when format("Trial by Category")
+      when format(Styling.centre("Trial by Category"))
         system "clear"
         GameMaster.run(user: @user, category: Category.select)
-      when format("High Scores")
+      when format(Styling.centre("High Scores"))
         system "clear"
         Leaderboard.menu(@user)
-      when format("Account Management")
+      when format(Styling.centre("Account Management"))
         system "clear"
         UserAccount.edit_user
-      when format("Exit")
+      when format(Styling.centre("Exit"))
         system "clear"
         live = false
       end

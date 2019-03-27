@@ -3,8 +3,8 @@ class Category
   @prompt = TTY::Prompt.new
   
   def self.select
-    category_choices = ["EVERY THING", "General Knowledge", "Books", "Films", "Music", "TV", "Games", "Computer Science", "History",  "Sports", "Anime", "Cartoons", "Go Back"]
-    case @prompt.select("Choose a category:", category_choices)
+    category_choices = [Styling.centre("EVERY THING"), Styling.centre("General Knowledge"), Styling.centre("Books"), Styling.centre("Films"), Styling.centre("Music"), Styling.centre("TV"), Styling.centre("Games"), Styling.centre("Computer Science"), Styling.centre("History"),  Styling.centre("Sports"), Styling.centre("Anime"), Styling.centre("Cartoons"), Styling.centre("Go Back")]
+    case @prompt.select(Styling.centre("Choose a category:"), category_choices, help_color: :hidden)
     when "EVERY THING"
       nil
     when "General Knowledge"
