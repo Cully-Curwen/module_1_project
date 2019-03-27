@@ -1,35 +1,35 @@
 class GameMaster
 
-  def initialize(user)
-    # creates a new game session pulling in user
-    @session = Test.maximum(:session) + 1
-    @user = user
-    @count = 1
-    @prompt = TTY::Prompt.new
-    @coder = HTMLEntities.new
+  @count = 1
+  @prompt = TTY::Prompt.new
+  @coder = HTMLEntities.new
+  
+  def self.get_question_from_db
+    # pull a questionfrom db 
+    @question = Question.find_by(id: rand(Question.maximum(:id)))
   end
   
-  def generate_question
-    # pull from db a question, creates an array of answer options and creates a test instance in the db
-    @question = Question.find_by(id: rand(Question.maximum(:id)))
+  def self.generate_question
+    # creates an array of answer options and creates a test instance in the db
     options_collection = [@question.correct_answer, @question.incorrect_answer_01, @question.incorrect_answer_02, @question.incorrect_answer_03]
     @options = options_collection.map{ |string| @coder.decode(string) }.sample(4)
     @test = Test.create(user_id: @user.id, question_id: @question.id, session: @session)
   end
-
-  def cred_of_answer
+  
+  def self.cred_of_answer
     # assigns a true or false statment depending if user got the answer for the question correct, and pushes to db
     check = @coder.decode(@question.correct_answer)
     @answer == check ? @test.credibility = true : @test.credibility = false
     @test.save
   end
-
-  def end_session?
+  
+  def self.end_session?
+    # should the session end or not
     if @test.credibility
       @live = true
       @count += 1
       puts "Congratulations, you got that right!"
-      sleep 3
+      sleep 1.5
       system "clear"
     else
       @live = false
@@ -41,11 +41,17 @@ class GameMaster
       @prompt.select("*"*20, "Leave")
     end
   end
-
-  def session
+  
+  def self.run(user: user, settings: settings = nil, category: category = nil)
+    # method that run the game session
+    @user = user
+    @session = Test.maximum(:session) + 1
+    @settings = settings
     @live = true
     while @live
+      system "clear"
       puts "Question number #{@count} is:"
+      self.get_question_from_db
       self.generate_question
       question_decoded = @coder.decode(@question.question)
       @answer = @prompt.select(question_decoded, @options)
@@ -53,5 +59,5 @@ class GameMaster
       self.end_session?
     end
   end
-
+  
 end

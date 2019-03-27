@@ -20,7 +20,7 @@ class LandingPage
       case @prompt.select(querry, options)
       when format("New Game")
         system "clear"
-        GameMaster.new(@user).session
+        GameMaster.run(user: @user)
       when format("High Scores")
         system "clear"
         # link to leaderboards
