@@ -60,6 +60,7 @@ class GameMaster
     @live = true
     while @live
       system "clear"
+      Styling.smart_graphic
       puts "Question number #{@count} is:"
       self.get_question_from_db(category)
       self.generate_question(category)
