@@ -7,6 +7,5 @@ require_relative '../config/environment'
   live = true
   while live
     system "clear"
-    Styling.intro_graphic
     Welcome.new_page
   end

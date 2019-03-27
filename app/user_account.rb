@@ -4,16 +4,18 @@ class UserAccount
   @prompt = TTY::Prompt.new
 
   def self.edit_user 
-    new_choices = [Styling.centre("Update Username"), Styling.centre("Update Password"), Styling.centre("Delete Account"), Styling.centre("Go Back")]
-    case @prompt.select(Styling.centre("What would you like to do"), new_choices, help_color: :hidden)
-    when "Update Username"
+    system 'clear'
+    Styling.smart_graphic
+    new_choices = {Styling.centre("Update Username") => 1, Styling.centre("Update Password") => 2, Styling.centre("Delete Account") => 3, Styling.centre("Go Back") => 4}
+    case @prompt.select(Styling.landing_page("What would you like to do"), new_choices, help_color: :hidden)
+    when 1
       User.update_username
-    when "Update Password"
+    when 2
       User.update_password
-    when "Delete Account"
+    when 3
       User.delete_account
       live = false
-    when "Go Back"
+    when 4
       true
     end
   end
