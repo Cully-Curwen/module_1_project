@@ -28,5 +28,5 @@ end
 
 desc 'Run the Game'
 task :run do
-    ruby bin/run.rb 
+    system 'ruby bin/run.rb '
 end
