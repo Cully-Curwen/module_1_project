@@ -1,12 +1,18 @@
 class GameMaster
 
-  @count = 1
   @prompt = TTY::Prompt.new
   @coder = HTMLEntities.new
   
-  def self.get_question_from_db
+  def self.get_question_from_db(category)
     # pull a questionfrom db 
-    @question = Question.find_by(id: rand(Question.maximum(:id)))
+    if category
+      if !@cat_range
+        @cat_range = Question.where(category: category).shuffle
+      end
+      @question = @cat_range.shift
+    else
+      @question = Question.find_by(id: rand(Question.maximum(:id)))
+    end
   end
   
   def self.generate_question
@@ -47,11 +53,12 @@ class GameMaster
     @user = user
     @session = Test.maximum(:session) + 1
     @settings = settings
+    @count = 1
     @live = true
     while @live
       system "clear"
       puts "Question number #{@count} is:"
-      self.get_question_from_db
+      self.get_question_from_db(category)
       self.generate_question
       question_decoded = @coder.decode(@question.question)
       @answer = @prompt.select(question_decoded, @options)
