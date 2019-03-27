@@ -15,11 +15,14 @@ class GameMaster
     end
   end
   
-  def self.generate_question
+  def self.generate_question(category)
     # creates an array of answer options and creates a test instance in the db
     options_collection = [@question.correct_answer, @question.incorrect_answer_01, @question.incorrect_answer_02, @question.incorrect_answer_03]
     @options = options_collection.map{ |string| @coder.decode(string) }.sample(4)
     @test = Test.create(user_id: @user.id, question_id: @question.id, session: @session)
+    if category
+      @test.update(category: category)
+    end
   end
   
   def self.cred_of_answer
@@ -59,7 +62,7 @@ class GameMaster
       system "clear"
       puts "Question number #{@count} is:"
       self.get_question_from_db(category)
-      self.generate_question
+      self.generate_question(category)
       question_decoded = @coder.decode(@question.question)
       @answer = @prompt.select(question_decoded, @options)
       self.cred_of_answer
