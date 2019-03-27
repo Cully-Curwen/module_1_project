@@ -26,8 +26,7 @@ class LandingPage
         GameMaster.run(user: @user, category: Category.select)
       when format(Styling.centre("High Scores"))
         system "clear"
-        # link to leaderboards
-        # LeaderBoards.home
+        Leaderboard.menu(@user)
       when format(Styling.centre("Account Management"))
         system "clear"
         UserAccount.edit_user
