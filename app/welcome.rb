@@ -7,16 +7,17 @@ class Welcome
 # puts_super_fast(@PASTEL.black("You usedwith ") + @PASTEL.bright_white.on_bright_red.bold("thankyou"))
 
 def self.run(user)
+    Styling.intro_graphic
     LandingPage.run(user)
 end
 
 def self.new_page
-    choices = [Styling.centre("Sign-in"), Styling.centre("New User")]
-    case @prompt.select(Styling.landing_page("Which page would you like to proceed to?"), choices, help_color: :hidden) 
-    when Styling.centre("Sign-in")
+    choices = {Styling.centre("Sign-in") => 1, Styling.centre("New User") => 2}
+    case @prompt.select(Styling.landing_page("What you want?"), choices, help_color: :hidden) 
+    when 1
         user = User.sign_in
         self.run(user)
-    when Styling.centre("New User")
+    when 2
         user = User.register
         self.run(user)
     end
