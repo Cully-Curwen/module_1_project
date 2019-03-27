@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
 
     def self.register
         name_str = @prompt.ask('Username:')
-        password_str = @prompt.ask('Password:')
+        password_str = @prompt.mask('Password:')
         User.find_or_create_by(name: name_str, password: password_str)
     end
 
     def self.sign_in
         name_str = @prompt.ask('What is your username?')
-        password_str = @prompt.ask('What is your password?')
+        password_str = @prompt.mask('What is your password?')
         if user = User.find_by(name: name_str, password: password_str)
             puts "Welcome back #{name_str}!"
             user
@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     def self.delete_account
         if @prompt.yes?('Do you want to delete your account?')
             name_str = @prompt.ask('What is your username?')
-            password_str = @prompt.ask('What is your password?')
+            password_str = @prompt.mask('What is your password?')
             if result = User.find_by(:name => name_str, :password => password_str)
                 User.delete(result.id)
                 puts "Account has been deleted. Please come back again"
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     def self.update_username
         if @prompt.yes?('Do you want to update your username?')
             name_str = @prompt.ask('What is your current username?')
-            password_str = @prompt.ask('What is your password?')
+            password_str = @prompt.mask('What is your password?')
             new_name_str = @prompt.ask('What would you like your new username to be?')
             if result = User.find_by(:name => name_str, :password => password_str)
                 result.update(name: new_name_str)
@@ -56,8 +56,8 @@ class User < ActiveRecord::Base
     def self.update_password
         if @prompt.yes?('Do you want to update your password?')
             name_str = @prompt.ask('What is your username?')
-            password_str = @prompt.ask('What is your current password?')
-            new_password_str = @prompt.ask('What would you like your new password to be?')
+            password_str = @prompt.mask('What is your current password?')
+            new_password_str = @prompt.mask('What would you like your new password to be?')
             if result = User.find_by(:name => name_str, :password => password_str)
                 result.update(password: new_password_str)
                 puts "Your password has been updated"

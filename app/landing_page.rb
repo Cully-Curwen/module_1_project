@@ -10,16 +10,17 @@ class LandingPage
     string
   end
 
-  def run(user)
+  def self.run(user)
     @user = user
     live = true
     while live
+      system "clear"
       querry = format("Options")
       options = ["New Game", "High Scores", "Account Management", "Exit"].map{ |string| format(string) }
       case @prompt.select(querry, options)
       when format("New Game")
         system "clear"
-        GameMaster.new(@user).session
+        GameMaster.run(user: @user)
       when format("High Scores")
         system "clear"
         # link to leaderboards
@@ -28,11 +29,12 @@ class LandingPage
         system "clear"
         UserAccount.edit_user
       when format("Exit")
-        system "clear"
         live = false
-        Welcome.new_page
       end
     end
+    system "clear"
+    # exit screen 
+    Welcome.new_page
   end
 
 end
