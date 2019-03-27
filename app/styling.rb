@@ -59,12 +59,12 @@ def self.puts_super_super_fast(str)
     print "\n"
   end
 
-  # def self.centre(str)
-  #   str_numb = str.size
-  #   str_numb = str_numb/2
-  #   numb = WIDTH/2
-  #   str.center(numb - str_numb)
-  # end
+  def self.centre(str)
+    str_numb = str.size
+    str_numb = str_numb/2
+    numb = WIDTH/2
+    str.center(numb - str_numb)
+  end
 
   def self.landing_page(str)
       @PASTEL.bright_white.on_bright_black.bold(Styling.centre("#{str}"))

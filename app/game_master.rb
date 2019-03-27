@@ -31,6 +31,28 @@ class GameMaster
     @answer == check ? @test.credibility = true : @test.credibility = false
     @test.save
   end
+
+  def self.time_dif(start_time, end_time)
+    elapsed_seconds = end_time.to_f - start_time.to_f
+  end
+
+  def self.high_score_check
+    session_stats = Test.where(session: @session, credibility: true)
+    score = session_stats.count
+    time = session_stats.map{ |x| self.time_dif(x.created_at, x.updated_at) }.reduce(:+)
+    time ? time : time = 0
+    if !@user.high_score
+      @user.update(high_score: score, high_score_time: time, high_score_session: @session)
+      puts "That's all I expected from you on your first go"
+      puts "Guess that makes your high score: #{@user.high_score} correct answers"
+      puts "taking you a #{@user.high_score_time.round(2)} seconds"
+    elsif score >= @user.high_score && time < @user.high_score_time
+      @user.update(high_score: score, high_score_time: time, high_score_session: @session)
+      puts "Well you have out done yourself!"
+      puts "You have a new high score: #{@user.high_score} correct anwers"
+      puts "taking you a #{@user.high_score_time.round(2)} seconds"
+    end
+  end
   
   def self.end_session?
     # should the session end or not
@@ -45,7 +67,7 @@ class GameMaster
       system "clear"
       puts "You got that wrong!"
       puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
-      puts "You got #{@count - 1} right"
+      GameMaster.high_score_check
       puts "Now Go!!!"
       @prompt.select("*"*20, "Leave")
     end
@@ -62,11 +84,16 @@ class GameMaster
       system "clear"
       Styling.smart_graphic
       puts "Question number #{@count} is:"
+      # gets a question from the db
       self.get_question_from_db(category)
+      # pull out useful components from question object
       self.generate_question(category)
       question_decoded = @coder.decode(@question.question)
+      # anser the question
       @answer = @prompt.select(question_decoded, @options)
+      # checks if answer is good
       self.cred_of_answer
+      # does the player get to continue
       self.end_session?
     end
   end
