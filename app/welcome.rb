@@ -6,7 +6,7 @@ class Welcome
 
 def self.run(user)
     # Welcom clie
-    LandingPage.new(user).run
+    LandingPage.run(user)
 end
 
 def self.new_page

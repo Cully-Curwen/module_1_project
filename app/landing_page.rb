@@ -1,19 +1,17 @@
 class LandingPage
 
-  def initialize(user)
-    @user = user
-    @prompt = TTY::Prompt.new
-    @coder = HTMLEntities.new
-    @font = TTY::Font.new(:doom)
-    @pastel = Pastel.new
-  end
+  @prompt = TTY::Prompt.new
+  @coder = HTMLEntities.new
+  @font = TTY::Font.new(:doom)
+  @pastel = Pastel.new
 
   def format(string)
-    @pastel.red(@font.write(string))
-    # string
+    # @pastel.red(@font.write(string))
+    string
   end
 
-  def run
+  def run(user)
+    @user = user
     live = true
     while live
       querry = format("Options")
