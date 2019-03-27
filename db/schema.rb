@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_172026) do
     t.boolean "credibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_03_27_172026) do
     t.datetime "updated_at", null: false
     t.string "password"
     t.integer "high_score"
-    t.string "category"
   end
 
 end
