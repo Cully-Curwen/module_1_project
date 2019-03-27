@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_172026) do
+ActiveRecord::Schema.define(version: 2019_03_27_185730) do
 
   create_table "questions", force: :cascade do |t|
     t.string "category"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_172026) do
     t.datetime "updated_at", null: false
     t.string "password"
     t.integer "high_score"
+    t.integer "high_score_time"
+    t.integer "high_score_session"
   end
 
 end
