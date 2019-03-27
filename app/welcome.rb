@@ -12,7 +12,7 @@ def self.run(user)
 end
 
 def self.new_page
-    choices = {Styling.box_this("I'm Back!") => 1, Styling.centre("I'm new!!") => 2}
+    choices = {Styling.centre("I'm Back!") => 1, Styling.centre("I'm new!!") => 2}
     case @prompt.select(Styling.landing_page("What you want?"), choices, help_color: :hidden) 
     when 1
         user = User.sign_in
