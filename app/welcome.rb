@@ -1,17 +1,25 @@
-require_relative '../config/environment'
+# require_relative '../config/environment'
+
+class Welcome
 
 @prompt = TTY::Prompt.new
 
-puts "Welcome to the Quiz!" #Replace with Graphic
+def self.run(user)
+    # Welcom clie
+    LandingPage.new(user).run
+end
 
-def new_page
+def self.new_page
+    puts "Welcome to the Quiz!" #Replace with Graphic
     choices = ["Sign-in", "New User"]
     case @prompt.select("Which page would you like to proceed to?", choices) 
     when "Sign-in"
-        User.sign_in
+        user = User.sign_in
+        self.run(user)
     when "New User"
-        User.register
+        user = User.register
+        self.run(user)
     end
 end
     
-    
+end    

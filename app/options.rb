@@ -1,4 +1,5 @@
-require_relative '../config/environment'
+# require_relative '../config/environment'
+class Options
 
 @prompt = TTY::Prompt.new
 
@@ -60,4 +61,6 @@ def find_question_difficulty
     selection
   end
   $difficultised = Question.where("difficulty = '#{search_str}'")
+end
+
 end

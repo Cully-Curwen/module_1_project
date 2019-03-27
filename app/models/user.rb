@@ -17,8 +17,9 @@ class User < ActiveRecord::Base
     def self.sign_in
         name_str = @prompt.ask('What is your username?')
         password_str = @prompt.ask('What is your password?')
-        if User.find_by(name: name_str, password: password_str)
+        if user = User.find_by(name: name_str, password: password_str)
             puts "Welcome back #{name_str}!"
+            user
         else
             puts "Incorrect details, try again."
             User.sign_in

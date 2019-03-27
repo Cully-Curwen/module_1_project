@@ -14,24 +14,27 @@ class LandingPage
   end
 
   def run
-    querry = format("Options")
-    options = ["New Game", "High Scores", "Account Management"].map{ |string| format(string) }
-    case @prompt.select(querry, options)
-    when format("New Game")
-      system "clear"
-      GameMaster.new(@user).session
-    when format("High Scores")
-      system "clear"
-      # link to leaderboards
-      # LeaderBoards.home
-    when format("Account Management")
-      system "clear"
-      # Link to accoutn Management
-    else
-      system "clear"
-      # return to welcome page
+    live = true
+    while live
+      querry = format("Options")
+      options = ["New Game", "High Scores", "Account Management", "Exit"].map{ |string| format(string) }
+      case @prompt.select(querry, options)
+      when format("New Game")
+        system "clear"
+        GameMaster.new(@user).session
+      when format("High Scores")
+        system "clear"
+        # link to leaderboards
+        # LeaderBoards.home
+      when format("Account Management")
+        system "clear"
+        UserAccount.edit_user
+      when format("Exit")
+        system "clear"
+        live = false
+        Welcome.new_page
+      end
     end
-
   end
 
 end
