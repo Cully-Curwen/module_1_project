@@ -12,9 +12,9 @@ def self.run(user)
 end
 
 def self.new_page
-    Styling.main_menu_screen
+    Styling.start_screen_banner
     choices = {Styling.centre("I'm a old user!") => 1, Styling.centre("I'm new!!") => 2}
-    case @prompt.select(Styling.landing_page("Do I know you?"), choices, help_color: :hidden) 
+    case @prompt.select(Styling.landing_page(""), choices, help_color: :hidden) 
     when 1
         user = User.sign_in
         if user

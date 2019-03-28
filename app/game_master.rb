@@ -73,6 +73,7 @@ class GameMaster
     else
       @live = false
       system "clear"
+      Styling.you_suck
       puts "You got that wrong!"
       puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
       GameMaster.high_score_check
@@ -91,14 +92,14 @@ class GameMaster
     while @live
       system "clear"
       Styling.smart_graphic
-      puts "Question number #{@count} is:"
+      puts ("Question number #{@count} is:")
       # gets a question from the db
       self.get_question_from_db(category)
       # pull out useful components from question object
       self.generate_question(category)
       question_decoded = @coder.decode(@question.question)
       # anser the question
-      @answer = @prompt.select(question_decoded, @options, help_color: :hidden)
+      @answer = @prompt.select(Styling.landing_page(question_decoded), @options, help_color: :hidden)
       # checks if answer is good
       self.cred_of_answer
       # does the player get to continue
