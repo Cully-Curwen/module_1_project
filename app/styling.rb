@@ -60,7 +60,8 @@ def self.puts_super_super_fast(str)
   end
 
   def self.centre(str)
-      @PASTEL.black(str)
+      # @PASTEL.on_bright_white(str)
+      str
   end
 
   def self.fake_loading_bar
@@ -71,7 +72,7 @@ def self.puts_super_super_fast(str)
   end
   def self.landing_page(str)
       # @PASTEL.bright_white.on_bright_black.bold("#{str}")
-      @PASTEL.black.underline(str)
+      @PASTEL.underline(str)
   end
 
   def self.intro_graphic
