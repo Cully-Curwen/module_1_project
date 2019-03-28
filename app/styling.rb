@@ -238,24 +238,24 @@ def self.start_screen_banner
 end
 
 def self.you_suck
-puts_super_super_fast "                                                                                                                                                                           
-                    YYYYYYY       YYYYYYY     OOOOOOOOO     UUUUUUUU     UUUUUUUU             SSSSSSSSSSSSSSS UUUUUUUU     UUUUUUUU        CCCCCCCCCCCCCKKKKKKKKK    KKKKKKK !!! 
-                    Y:::::Y       Y:::::Y   OO:::::::::OO   U::::::U     U::::::U           SS:::::::::::::::SU::::::U     U::::::U     CCC::::::::::::CK:::::::K    K:::::K!!:!!
-                    Y:::::Y       Y:::::Y OO:::::::::::::OO U::::::U     U::::::U          S:::::SSSSSS::::::SU::::::U     U::::::U   CC:::::::::::::::CK:::::::K    K:::::K!:::!
-                    Y::::::Y     Y::::::YO:::::::OOO:::::::OUU:::::U     U:::::UU          S:::::S     SSSSSSSUU:::::U     U:::::UU  C:::::CCCCCCCC::::CK:::::::K   K::::::K!:::!
-                    YYY:::::Y   Y:::::YYYO::::::O   O::::::O U:::::U     U:::::U           S:::::S             U:::::U     U:::::U  C:::::C       CCCCCCKK::::::K  K:::::KKK!:::!
-                       Y:::::Y Y:::::Y   O:::::O     O:::::O U:::::D     D:::::U           S:::::S             U:::::D     D:::::U C:::::C                K:::::K K:::::K   !:::!
-                        Y:::::Y:::::Y    O:::::O     O:::::O U:::::D     D:::::U            S::::SSSS          U:::::D     D:::::U C:::::C                K::::::K:::::K    !:::!
-                         Y:::::::::Y     O:::::O     O:::::O U:::::D     D:::::U             SS::::::SSSSS     U:::::D     D:::::U C:::::C                K:::::::::::K     !:::!
-                          Y:::::::Y      O:::::O     O:::::O U:::::D     D:::::U               SSS::::::::SS   U:::::D     D:::::U C:::::C                K:::::::::::K     !:::!
-                           Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U                  SSSSSS::::S  U:::::D     D:::::U C:::::C                K::::::K:::::K    !:::!
-                           Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U                       S:::::S U:::::D     D:::::U C:::::C                K:::::K K:::::K   !!:!!
-                           Y:::::Y       O::::::O   O::::::O U::::::U   U::::::U                       S:::::S U::::::U   U::::::U  C:::::C       CCCCCCKK::::::K  K:::::KKK !!! 
-                           Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U           SSSSSSS     S:::::S U:::::::UUU:::::::U   C:::::CCCCCCCC::::CK:::::::K   K::::::K     
-                        YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU            S::::::SSSSSS:::::S  UU:::::::::::::UU     CC:::::::::::::::CK:::::::K    K:::::K !!! 
-                        Y:::::::::::Y       OO:::::::::OO       UU:::::::::UU              S:::::::::::::::SS     UU:::::::::UU         CCC::::::::::::CK:::::::K    K:::::K!!:!!
-                        YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU                 SSSSSSSSSSSSSSS         UUUUUUUUU              CCCCCCCCCCCCCKKKKKKKKK    KKKKKKK !!! 
-
+puts_super_super_fast "                                                                                                       
+                    WWWWWWWW                           WWWWWWWWRRRRRRRRRRRRRRRRR        OOOOOOOOO     NNNNNNNN        NNNNNNNN        GGGGGGGGGGGGG !!! 
+                    W::::::W                           W::::::WR::::::::::::::::R     OO:::::::::OO   N:::::::N       N::::::N     GGG::::::::::::G!!:!!
+                    W::::::W                           W::::::WR::::::RRRRRR:::::R  OO:::::::::::::OO N::::::::N      N::::::N   GG:::::::::::::::G!:::!
+                    W::::::W                           W::::::WRR:::::R     R:::::RO:::::::OOO:::::::ON:::::::::N     N::::::N  G:::::GGGGGGGG::::G!:::!
+                     W:::::W           WWWWW           W:::::W   R::::R     R:::::RO::::::O   O::::::ON::::::::::N    N::::::N G:::::G       GGGGGG!:::!
+                      W:::::W         W:::::W         W:::::W    R::::R     R:::::RO:::::O     O:::::ON:::::::::::N   N::::::NG:::::G              !:::!
+                       W:::::W       W:::::::W       W:::::W     R::::RRRRRR:::::R O:::::O     O:::::ON:::::::N::::N  N::::::NG:::::G              !:::!
+                        W:::::W     W:::::::::W     W:::::W      R:::::::::::::RR  O:::::O     O:::::ON::::::N N::::N N::::::NG:::::G    GGGGGGGGGG!:::!
+                         W:::::W   W:::::W:::::W   W:::::W       R::::RRRRRR:::::R O:::::O     O:::::ON::::::N  N::::N:::::::NG:::::G    G::::::::G!:::!
+                          W:::::W W:::::W W:::::W W:::::W        R::::R     R:::::RO:::::O     O:::::ON::::::N   N:::::::::::NG:::::G    GGGGG::::G!:::!
+                           W:::::W:::::W   W:::::W:::::W         R::::R     R:::::RO:::::O     O:::::ON::::::N    N::::::::::NG:::::G        G::::G!!:!!
+                            W:::::::::W     W:::::::::W          R::::R     R:::::RO::::::O   O::::::ON::::::N     N:::::::::N G:::::G       G::::G !!! 
+                             W:::::::W       W:::::::W         RR:::::R     R:::::RO:::::::OOO:::::::ON::::::N      N::::::::N  G:::::GGGGGGGG::::G     
+                              W:::::W         W:::::W          R::::::R     R:::::R OO:::::::::::::OO N::::::N       N:::::::N   GG:::::::::::::::G !!! 
+                               W:::W           W:::W           R::::::R     R:::::R   OO:::::::::OO   N::::::N        N::::::N     GGG::::::GGG:::G!!:!!
+                                WWW             WWW            RRRRRRRR     RRRRRRR     OOOOOOOOO     NNNNNNNN         NNNNNNN        GGGGGG   GGGG !!! 
+                                                                                                                                                        
 "
 end
 # def self.sam_say(str)
