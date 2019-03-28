@@ -28,22 +28,38 @@ class Leaderboard
     end
     puts output    
   end
+
+  def self.time_dif(session)
+    # finds the start of the session (when first test created) and last updated_at (time of last answer)
+    start_time = Test.where(session: session).minimum(:created_at)
+    end_time = Test.where(session: session).maximum(:updated_at)
+    elapsed_seconds = end_time.to_f - start_time.to_f
+    elapsed_seconds.to_i
+  end
   
   def self.cat_score
-    # top_score = Test.
-    
+    # searched database by categorys to find the highest score and the user
     category_keys = ["Entertainment: Books", "Entertainment: Cartoon & Animations", "Entertainment: Film", "Entertainment: Japanese Anime & Manga", "Entertainment: Music", "Entertainment: Television", "Entertainment: Video Games", "General Knowledge", "Geography", "History", "Science & Nature", "Science: Computers", "Sports", "Vehicles"]
-    
     header = ["Category", "Master", "Correct Answers", "Time (seconds)"]
-    rows = []
+    # rows start with everything cat high score - i.e. the grand master
+    top_user = self.high_scores.first
+    rows = [["EVERYTHING", top_user.name, top_user.high_score, top_user.high_score_time]]
     category_keys.map do |key|
       search = Test.find_by_sql("SELECT user_id, session FROM tests GROUP BY session HAVING category = '#{key}' ORDER BY COUNT(session) DESC Limit 1").first
-      name = User.find_by(id: search.user_id)
-      score = Test.where(session: search.session, credibility: 't').count
-      rows = [key, name, "#{score}"]
+      if search
+        name = User.find_by(id: search.user_id).name
+        score = Test.where(session: search.session, credibility: 't').count
+        time = self.time_dif(search.session)
+        rows << [key, name, "#{score}", "#{time}"]
+      else
+        name = "-"
+        score = "-"
+        time = "-"
+        rows << [key, name, score, time]
+      end
     end
     table = TTY::Table.new header, rows
-    output = table.render(:unicode, alignments: [:left, :center, :center], padding: [0,2,0,2] ) do |renderer|
+    output = table.render(:unicode, alignments: [:left, :center, :center, :center], padding: [0,2,0,2] ) do |renderer|
       renderer.border.separator = :each_row
     end
     puts output   

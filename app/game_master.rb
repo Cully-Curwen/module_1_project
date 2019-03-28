@@ -39,7 +39,9 @@ def self.time_dif
     elapsed_seconds = end_time.to_f - start_time.to_f
   end
 
-  def self.high_score_check
+  def self.high_score_check(category)
+    # check that the session is not a category session
+    category ? return : true
     # finds number of correct answers and time taken for the session
     session_stats = Test.where(session: @session, credibility: true)
     score = session_stats.count
@@ -71,7 +73,7 @@ def self.time_dif
     end
   end
   
-  def self.end_session?
+  def self.end_session?(category)
     # should the session end or not
     if @test.credibility
       @correct += 1
@@ -87,7 +89,7 @@ def self.time_dif
         # Styling.wrong
         puts "Lives: #{@coder.decode("&#10084;  ") * @live}"
         puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
-        GameMaster.high_score_check
+        GameMaster.high_score_check(category)
         @prompt.select("*"*20, "Next Question", help_color: :hidden)
       else
         system 'clear'
@@ -122,7 +124,7 @@ def self.time_dif
       # checks if answer is good
       self.cred_of_answer
       # does the player get to continue
-      self.end_session?
+      self.end_session?(category)
       @count += 1
     end
   end
