@@ -23,7 +23,7 @@ def self.puts_super_super_fast(str)
     print "\n"
   end
 
-   def puts_super_fast(str)
+   def self.puts_super_fast(str)
     chars = str.split(//)
     chars.each do |c|
       print c
@@ -60,14 +60,18 @@ def self.puts_super_super_fast(str)
   end
 
   def self.centre(str)
-    str_numb = str.size
-    str_numb = str_numb/2
-    numb = WIDTH/2
-    str.center(numb - str_numb)
+      @PASTEL.black(str)
   end
 
+  def self.fake_loading_bar
+    puts_fast "████████████████ GETTING INFO █████████████████"
+    system 'clear'
+    self.smart_graphic
+    puts_super_super_fast "████████████████ GATHERED INFO ████████████████"
+  end
   def self.landing_page(str)
-      @PASTEL.bright_white.on_bright_black.bold(Styling.centre("#{str}"))
+      # @PASTEL.bright_white.on_bright_black.bold("#{str}")
+      @PASTEL.black.underline(str)
   end
 
   def self.intro_graphic
@@ -162,6 +166,51 @@ def self.smart_graphic
 
 end
 
+def self.main_menu_screen
+
+                                 puts_super_super_fast                                                    "                                                                                 
+                                                    LLLLLLLLLLL                  OOOOOOOOO             GGGGGGGGGGGGGIIIIIIIIIINNNNNNNN        NNNNNNNN
+                                                    L:::::::::L                OO:::::::::OO        GGG::::::::::::GI::::::::IN:::::::N       N::::::N
+                                                    L:::::::::L              OO:::::::::::::OO    GG:::::::::::::::GI::::::::IN::::::::N      N::::::N
+                                                    LL:::::::LL             O:::::::OOO:::::::O  G:::::GGGGGGGG::::GII::::::IIN:::::::::N     N::::::N
+                                                      L:::::L               O::::::O   O::::::O G:::::G       GGGGGG  I::::I  N::::::::::N    N::::::N
+                                                      L:::::L               O:::::O     O:::::OG:::::G                I::::I  N:::::::::::N   N::::::N
+                                                      L:::::L               O:::::O     O:::::OG:::::G                I::::I  N:::::::N::::N  N::::::N
+                                                      L:::::L               O:::::O     O:::::OG:::::G    GGGGGGGGGG  I::::I  N::::::N N::::N N::::::N
+                                                      L:::::L               O:::::O     O:::::OG:::::G    G::::::::G  I::::I  N::::::N  N::::N:::::::N
+                                                      L:::::L               O:::::O     O:::::OG:::::G    GGGGG::::G  I::::I  N::::::N   N:::::::::::N
+                                                      L:::::L               O:::::O     O:::::OG:::::G        G::::G  I::::I  N::::::N    N::::::::::N
+                                                      L:::::L         LLLLLLO::::::O   O::::::O G:::::G       G::::G  I::::I  N::::::N     N:::::::::N
+                                                    LL:::::::LLLLLLLLL:::::LO:::::::OOO:::::::O  G:::::GGGGGGGG::::GII::::::IIN::::::N      N::::::::N
+                                                    L::::::::::::::::::::::L OO:::::::::::::OO    GG:::::::::::::::GI::::::::IN::::::N       N:::::::N
+                                                    L::::::::::::::::::::::L   OO:::::::::OO        GGG::::::GGG:::GI::::::::IN::::::N        N::::::N
+                                                    LLLLLLLLLLLLLLLLLLLLLLLL     OOOOOOOOO             GGGGGG   GGGGIIIIIIIIIINNNNNNNN         NNNNNNN
+                                                    "
+end
+
+def self.category_menu
+  puts_super_super_fast"
+
+                                                                                                                                                                                                
+                                                                                                                                                                                                
+                    CCCCCCCCCCCCC               AAA               TTTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEEEE        GGGGGGGGGGGGG     OOOOOOOOO     RRRRRRRRRRRRRRRRR   YYYYYYY       YYYYYYY
+                 CCC::::::::::::C              A:::A              T:::::::::::::::::::::TE::::::::::::::::::::E     GGG::::::::::::G   OO:::::::::OO   R::::::::::::::::R  Y:::::Y       Y:::::Y
+               CC:::::::::::::::C             A:::::A             T:::::::::::::::::::::TE::::::::::::::::::::E   GG:::::::::::::::G OO:::::::::::::OO R::::::RRRRRR:::::R Y:::::Y       Y:::::Y
+              C:::::CCCCCCCC::::C            A:::::::A            T:::::TT:::::::TT:::::TEE::::::EEEEEEEEE::::E  G:::::GGGGGGGG::::GO:::::::OOO:::::::ORR:::::R     R:::::RY::::::Y     Y::::::Y
+             C:::::C       CCCCCC           A:::::::::A           TTTTTT  T:::::T  TTTTTT  E:::::E       EEEEEE G:::::G       GGGGGGO::::::O   O::::::O  R::::R     R:::::RYYY:::::Y   Y:::::YYY
+            C:::::C                        A:::::A:::::A                  T:::::T          E:::::E             G:::::G              O:::::O     O:::::O  R::::R     R:::::R   Y:::::Y Y:::::Y   
+            C:::::C                       A:::::A A:::::A                 T:::::T          E::::::EEEEEEEEEE   G:::::G              O:::::O     O:::::O  R::::RRRRRR:::::R     Y:::::Y:::::Y    
+            C:::::C                      A:::::A   A:::::A                T:::::T          E:::::::::::::::E   G:::::G    GGGGGGGGGGO:::::O     O:::::O  R:::::::::::::RR       Y:::::::::Y     
+            C:::::C                     A:::::A     A:::::A               T:::::T          E:::::::::::::::E   G:::::G    G::::::::GO:::::O     O:::::O  R::::RRRRRR:::::R       Y:::::::Y      
+            C:::::C                    A:::::AAAAAAAAA:::::A              T:::::T          E::::::EEEEEEEEEE   G:::::G    GGGGG::::GO:::::O     O:::::O  R::::R     R:::::R       Y:::::Y       
+            C:::::C                   A:::::::::::::::::::::A             T:::::T          E:::::E             G:::::G        G::::GO:::::O     O:::::O  R::::R     R:::::R       Y:::::Y       
+             C:::::C       CCCCCC    A:::::AAAAAAAAAAAAA:::::A            T:::::T          E:::::E       EEEEEE G:::::G       G::::GO::::::O   O::::::O  R::::R     R:::::R       Y:::::Y       
+              C:::::CCCCCCCC::::C   A:::::A             A:::::A         TT:::::::TT      EE::::::EEEEEEEE:::::E  G:::::GGGGGGGG::::GO:::::::OOO:::::::ORR:::::R     R:::::R       Y:::::Y       
+               CC:::::::::::::::C  A:::::A               A:::::A        T:::::::::T      E::::::::::::::::::::E   GG:::::::::::::::G OO:::::::::::::OO R::::::R     R:::::R    YYYY:::::YYYY    
+                 CCC::::::::::::C A:::::A                 A:::::A       T:::::::::T      E::::::::::::::::::::E     GGG::::::GGG:::G   OO:::::::::OO   R::::::R     R:::::R    Y:::::::::::Y    
+                    CCCCCCCCCCCCCAAAAAAA                   AAAAAAA      TTTTTTTTTTT      EEEEEEEEEEEEEEEEEEEEEE        GGGGGG   GGGG     OOOOOOOOO     RRRRRRRR     RRRRRRR    YYYYYYYYYYYYY    
+  "
+end
 # def self.sam_say(str)
 #     %x(say '#{str}') 
 # end

@@ -90,7 +90,7 @@ class GameMaster
       self.generate_question(category)
       question_decoded = @coder.decode(@question.question)
       # anser the question
-      @answer = @prompt.select(question_decoded, @options)
+      @answer = @prompt.select(question_decoded, @options, help_color: :hidden)
       # checks if answer is good
       self.cred_of_answer
       # does the player get to continue

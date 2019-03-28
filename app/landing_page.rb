@@ -16,6 +16,7 @@ class LandingPage
     while live
       system "clear"
       Styling.smart_graphic
+      Styling.fake_loading_bar
       querry = format(Styling.landing_page("Options"))
       options = [Styling.centre("Lets Go"), Styling.centre("Trial by Category"), Styling.centre("High Scores"), Styling.centre("Account Management"), Styling.centre("Exit")].map{ |string| format(string) }
       case @prompt.select(querry, options, help_color: :hidden)
