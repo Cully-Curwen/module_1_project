@@ -22,9 +22,9 @@ def self.new_page
         end
     when 2
         user = User.register
-        if user
+        # if user
             self.run(user)
-        end
+        # end
     end
 end
     
