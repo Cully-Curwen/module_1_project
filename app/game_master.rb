@@ -45,12 +45,20 @@ class GameMaster
       @user.update(high_score: score, high_score_time: time, high_score_session: @session)
       puts "That's all I expected from you on your first go"
       puts "Guess that makes your high score: #{@user.high_score} correct answers"
-      puts "taking you a #{@user.high_score_time.round(2)} seconds"
-    elsif score >= @user.high_score && time < @user.high_score_time
+      puts "taking you a #{@user.high_score_time.round(3)} seconds"
+    elsif score > @user.high_score
       @user.update(high_score: score, high_score_time: time, high_score_session: @session)
       puts "Well you have out done yourself!"
       puts "You have a new high score: #{@user.high_score} correct anwers"
-      puts "taking you a #{@user.high_score_time.round(2)} seconds"
+      puts "taking you a #{@user.high_score_time.round(3)} seconds"
+    elsif score == @user.high_score && time < @user.high_score_time
+      puts "You have matched you high score of #{@user.high_score} correct anwers!"
+      puts "Better yet you have got quicker taking #{time.round(3)} seconds"
+      puts "Now you just need to get more answers right!"
+    elsif score == @user.high_score && time > @user.high_score_time
+      puts "You have matched you high score of #{@user.high_score} correct anwers!"
+      puts "But you where slower at #{time.round(3)} seconds"
+      puts "Get Quicker!!!"
     end
   end
   
