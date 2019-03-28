@@ -43,7 +43,7 @@ def self.time_dif
     # finds number of correct answers and time taken for the session
     session_stats = Test.where(session: @session, credibility: true)
     score = session_stats.count
-    time = self.time_diff
+    time = self.time_dif
     time ? time : time = 0
     if !@user.high_score
       # if this is the first time playing set the seesion result as high score 
