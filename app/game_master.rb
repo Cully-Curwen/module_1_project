@@ -77,7 +77,7 @@ class GameMaster
       puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
       GameMaster.high_score_check
       puts "Now Go!!!"
-      @prompt.select("*"*20, "Leave")
+      @prompt.select("*"*20, "Leave", help_color: :hidden)
     end
   end
   
