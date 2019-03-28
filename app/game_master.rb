@@ -67,22 +67,22 @@ class GameMaster
     if @test.credibility
       @correct += 1
       system "clear"
-      # Styling.correct
+      Styling.correct_banner
       puts "You have got #{@correct} correct so far"
       @prompt.select("*"*20, "Next Question", help_color: :hidden)
     else
       @live -= 1
-      # Styling.heart_break
+      Styling.heart_break
       if @live > 0
-
-        system "clear"
-        Styling.you_suck
+        # system "clear"
+        # Styling.wrong
         puts "Lives: #{@coder.decode("&#10084;  ") * @live}"
         puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
         GameMaster.high_score_check
         @prompt.select("*"*20, "Next Question", help_color: :hidden)
       else
-        # Styling.game_over
+        system 'clear'
+        Styling.game_over
         puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
         puts "Now Go!!!"
         @prompt.select("*"*20, "Leave", help_color: :hidden)

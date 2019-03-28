@@ -190,7 +190,7 @@ def self.main_menu_screen
 end
 
 def self.category_menu
-  puts_super_super_fast"
+  puts "
 
                                                                                                                                                                                                 
                                                                                                                                                                                                 
@@ -214,7 +214,7 @@ def self.category_menu
 end
 
 def self.start_screen_banner
-                puts_super_super_fast "
+                puts "
                                                                                                                                                                           ???????     
                                                                                                                                                                         ??:::::::??   
               WWWWWWWW                           WWWWWWWWHHHHHHHHH     HHHHHHHHH     OOOOOOOOO                    DDDDDDDDDDDDD        IIIIIIIIII   SSSSSSSSSSSSSSS   ??:::::::::::?  
@@ -237,8 +237,8 @@ def self.start_screen_banner
 "
 end
 
-def self.you_suck
-puts_super_super_fast "                                                                                                       
+def self.wrong
+puts "                                                                                                       
                     WWWWWWWW                           WWWWWWWWRRRRRRRRRRRRRRRRR        OOOOOOOOO     NNNNNNNN        NNNNNNNN        GGGGGGGGGGGGG !!! 
                     W::::::W                           W::::::WR::::::::::::::::R     OO:::::::::OO   N:::::::N       N::::::N     GGG::::::::::::G!!:!!
                     W::::::W                           W::::::WR::::::RRRRRR:::::R  OO:::::::::::::OO N::::::::N      N::::::N   GG:::::::::::::::G!:::!
@@ -257,6 +257,272 @@ puts_super_super_fast "
                                 WWW             WWW            RRRRRRRR     RRRRRRR     OOOOOOOOO     NNNNNNNN         NNNNNNN        GGGGGG   GGGG !!! 
                                                                                                                                                         
 "
+
+end
+
+def self.correct_banner
+  puts "
+                                                                                                                           
+                            CCCCCCCCCCCCC     OOOOOOOOO     RRRRRRRRRRRRRRRRR   RRRRRRRRRRRRRRRRR   EEEEEEEEEEEEEEEEEEEEEE        CCCCCCCCCCCCCTTTTTTTTTTTTTTTTTTTTTTT !!! 
+                         CCC::::::::::::C   OO:::::::::OO   R::::::::::::::::R  R::::::::::::::::R  E::::::::::::::::::::E     CCC::::::::::::CT:::::::::::::::::::::T!!:!!
+                       CC:::::::::::::::C OO:::::::::::::OO R::::::RRRRRR:::::R R::::::RRRRRR:::::R E::::::::::::::::::::E   CC:::::::::::::::CT:::::::::::::::::::::T!:::!
+                      C:::::CCCCCCCC::::CO:::::::OOO:::::::ORR:::::R     R:::::RRR:::::R     R:::::REE::::::EEEEEEEEE::::E  C:::::CCCCCCCC::::CT:::::TT:::::::TT:::::T!:::!
+                     C:::::C       CCCCCCO::::::O   O::::::O  R::::R     R:::::R  R::::R     R:::::R  E:::::E       EEEEEE C:::::C       CCCCCCTTTTTT  T:::::T  TTTTTT!:::!
+                    C:::::C              O:::::O     O:::::O  R::::R     R:::::R  R::::R     R:::::R  E:::::E             C:::::C                      T:::::T        !:::!
+                    C:::::C              O:::::O     O:::::O  R::::RRRRRR:::::R   R::::RRRRRR:::::R   E::::::EEEEEEEEEE   C:::::C                      T:::::T        !:::!
+                    C:::::C              O:::::O     O:::::O  R:::::::::::::RR    R:::::::::::::RR    E:::::::::::::::E   C:::::C                      T:::::T        !:::!
+                    C:::::C              O:::::O     O:::::O  R::::RRRRRR:::::R   R::::RRRRRR:::::R   E:::::::::::::::E   C:::::C                      T:::::T        !:::!
+                    C:::::C              O:::::O     O:::::O  R::::R     R:::::R  R::::R     R:::::R  E::::::EEEEEEEEEE   C:::::C                      T:::::T        !:::!
+                    C:::::C              O:::::O     O:::::O  R::::R     R:::::R  R::::R     R:::::R  E:::::E             C:::::C                      T:::::T        !!:!!
+                     C:::::C       CCCCCCO::::::O   O::::::O  R::::R     R:::::R  R::::R     R:::::R  E:::::E       EEEEEE C:::::C       CCCCCC        T:::::T         !!! 
+                      C:::::CCCCCCCC::::CO:::::::OOO:::::::ORR:::::R     R:::::RRR:::::R     R:::::REE::::::EEEEEEEE:::::E  C:::::CCCCCCCC::::C      TT:::::::TT           
+                       CC:::::::::::::::C OO:::::::::::::OO R::::::R     R:::::RR::::::R     R:::::RE::::::::::::::::::::E   CC:::::::::::::::C      T:::::::::T       !!! 
+                         CCC::::::::::::C   OO:::::::::OO   R::::::R     R:::::RR::::::R     R:::::RE::::::::::::::::::::E     CCC::::::::::::C      T:::::::::T      !!:!!
+                            CCCCCCCCCCCCC     OOOOOOOOO     RRRRRRRR     RRRRRRRRRRRRRRR     RRRRRRREEEEEEEEEEEEEEEEEEEEEE        CCCCCCCCCCCCC      TTTTTTTTTTT       !!! 
+
+  "
+end
+
+def self.game_over
+                        puts "                                                                                                                
+                                                          GGGGGGGGGGGGG               AAA               MMMMMMMM               MMMMMMMMEEEEEEEEEEEEEEEEEEEEEE
+                                                       GGG::::::::::::G              A:::A              M:::::::M             M:::::::ME::::::::::::::::::::E
+                                                     GG:::::::::::::::G             A:::::A             M::::::::M           M::::::::ME::::::::::::::::::::E
+                                                    G:::::GGGGGGGG::::G            A:::::::A            M:::::::::M         M:::::::::MEE::::::EEEEEEEEE::::E
+                                                   G:::::G       GGGGGG           A:::::::::A           M::::::::::M       M::::::::::M  E:::::E       EEEEEE
+                                                  G:::::G                        A:::::A:::::A          M:::::::::::M     M:::::::::::M  E:::::E             
+                                                  G:::::G                       A:::::A A:::::A         M:::::::M::::M   M::::M:::::::M  E::::::EEEEEEEEEE   
+                                                  G:::::G    GGGGGGGGGG        A:::::A   A:::::A        M::::::M M::::M M::::M M::::::M  E:::::::::::::::E   
+                                                  G:::::G    G::::::::G       A:::::A     A:::::A       M::::::M  M::::M::::M  M::::::M  E:::::::::::::::E   
+                                                  G:::::G    GGGGG::::G      A:::::AAAAAAAAA:::::A      M::::::M   M:::::::M   M::::::M  E::::::EEEEEEEEEE   
+                                                  G:::::G        G::::G     A:::::::::::::::::::::A     M::::::M    M:::::M    M::::::M  E:::::E             
+                                                   G:::::G       G::::G    A:::::AAAAAAAAAAAAA:::::A    M::::::M     MMMMM     M::::::M  E:::::E       EEEEEE
+                                                    G:::::GGGGGGGG::::G   A:::::A             A:::::A   M::::::M               M::::::MEE::::::EEEEEEEE:::::E
+                                                     GG:::::::::::::::G  A:::::A               A:::::A  M::::::M               M::::::ME::::::::::::::::::::E
+                                                       GGG::::::GGG:::G A:::::A                 A:::::A M::::::M               M::::::ME::::::::::::::::::::E
+                                                          GGGGGG   GGGGAAAAAAA                   AAAAAAAMMMMMMMM               MMMMMMMMEEEEEEEEEEEEEEEEEEEEEE
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                                                                                                             
+                                                                 OOOOOOOOO     VVVVVVVV           VVVVVVVVEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR            
+                                                               OO:::::::::OO   V::::::V           V::::::VE::::::::::::::::::::ER::::::::::::::::R           
+                                                             OO:::::::::::::OO V::::::V           V::::::VE::::::::::::::::::::ER::::::RRRRRR:::::R          
+                                                            O:::::::OOO:::::::OV::::::V           V::::::VEE::::::EEEEEEEEE::::ERR:::::R     R:::::R         
+                                                            O::::::O   O::::::O V:::::V           V:::::V   E:::::E       EEEEEE  R::::R     R:::::R         
+                                                            O:::::O     O:::::O  V:::::V         V:::::V    E:::::E               R::::R     R:::::R         
+                                                            O:::::O     O:::::O   V:::::V       V:::::V     E::::::EEEEEEEEEE     R::::RRRRRR:::::R          
+                                                            O:::::O     O:::::O    V:::::V     V:::::V      E:::::::::::::::E     R:::::::::::::RR           
+                                                            O:::::O     O:::::O     V:::::V   V:::::V       E:::::::::::::::E     R::::RRRRRR:::::R          
+                                                            O:::::O     O:::::O      V:::::V V:::::V        E::::::EEEEEEEEEE     R::::R     R:::::R         
+                                                            O:::::O     O:::::O       V:::::V:::::V         E:::::E               R::::R     R:::::R         
+                                                            O::::::O   O::::::O        V:::::::::V          E:::::E       EEEEEE  R::::R     R:::::R         
+                                                            O:::::::OOO:::::::O         V:::::::V         EE::::::EEEEEEEE:::::ERR:::::R     R:::::R         
+                                                             OO:::::::::::::OO           V:::::V          E::::::::::::::::::::ER::::::R     R:::::R         
+                                                               OO:::::::::OO              V:::V           E::::::::::::::::::::ER::::::R     R:::::R         
+                                                                 OOOOOOOOO                 VVV            EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR         
+                                                                                                                                                             
+                        "
+end
+
+def self.heart_break
+# life = puts "                                                                                                                                                                         
+# LLLLLLLLLLL             IIIIIIIIIIFFFFFFFFFFFFFFFFFFFFFFEEEEEEEEEEEEEEEEEEEEEE          LLLLLLLLLLL                  OOOOOOOOO        SSSSSSSSSSSSSSS TTTTTTTTTTTTTTTTTTTTTTT
+# L:::::::::L             I::::::::IF::::::::::::::::::::FE::::::::::::::::::::E          L:::::::::L                OO:::::::::OO    SS:::::::::::::::ST:::::::::::::::::::::T
+# L:::::::::L             I::::::::IF::::::::::::::::::::FE::::::::::::::::::::E          L:::::::::L              OO:::::::::::::OO S:::::SSSSSS::::::ST:::::::::::::::::::::T
+# LL:::::::LL             II::::::IIFF::::::FFFFFFFFF::::FEE::::::EEEEEEEEE::::E          LL:::::::LL             O:::::::OOO:::::::OS:::::S     SSSSSSST:::::TT:::::::TT:::::T
+#   L:::::L                 I::::I    F:::::F       FFFFFF  E:::::E       EEEEEE            L:::::L               O::::::O   O::::::OS:::::S            TTTTTT  T:::::T  TTTTTT
+#   L:::::L                 I::::I    F:::::F               E:::::E                         L:::::L               O:::::O     O:::::OS:::::S                    T:::::T        
+#   L:::::L                 I::::I    F::::::FFFFFFFFFF     E::::::EEEEEEEEEE               L:::::L               O:::::O     O:::::O S::::SSSS                 T:::::T        
+#   L:::::L                 I::::I    F:::::::::::::::F     E:::::::::::::::E               L:::::L               O:::::O     O:::::O  SS::::::SSSSS            T:::::T        
+#   L:::::L                 I::::I    F:::::::::::::::F     E:::::::::::::::E               L:::::L               O:::::O     O:::::O    SSS::::::::SS          T:::::T        
+#   L:::::L                 I::::I    F::::::FFFFFFFFFF     E::::::EEEEEEEEEE               L:::::L               O:::::O     O:::::O       SSSSSS::::S         T:::::T        
+#   L:::::L                 I::::I    F:::::F               E:::::E                         L:::::L               O:::::O     O:::::O            S:::::S        T:::::T        
+#   L:::::L         LLLLLL  I::::I    F:::::F               E:::::E       EEEEEE            L:::::L         LLLLLLO::::::O   O::::::O            S:::::S        T:::::T        
+# LL:::::::LLLLLLLLL:::::LII::::::IIFF:::::::FF           EE::::::EEEEEEEE:::::E          LL:::::::LLLLLLLLL:::::LO:::::::OOO:::::::OSSSSSSS     S:::::S      TT:::::::TT      
+# L::::::::::::::::::::::LI::::::::IF::::::::FF           E::::::::::::::::::::E          L::::::::::::::::::::::L OO:::::::::::::OO S::::::SSSSSS:::::S      T:::::::::T      
+# L::::::::::::::::::::::LI::::::::IF::::::::FF           E::::::::::::::::::::E          L::::::::::::::::::::::L   OO:::::::::OO   S:::::::::::::::SS       T:::::::::T      
+# LLLLLLLLLLLLLLLLLLLLLLLLIIIIIIIIIIFFFFFFFFFFF           EEEEEEEEEEEEEEEEEEEEEE          LLLLLLLLLLLLLLLLLLLLLLLL     OOOOOOOOO      SSSSSSSSSSSSSSS         TTTTTTTTTTT      
+                                                                                                                                                                             
+# "
+
+system 'clear'
+  puts "
+  
+                                                                     ``  ``  `` ``` ``  ``  ``  ``  ``  ``  ``  ``  `` ``` ``` ``  ``  ``  ``  ``  ``  ``  ``  `` ``` `
+                                                                  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ```
+                                                                    ``  `` ``` ``` ``` ``` `-...-.```  ``  ``  ``  `` ``` ``` ``` ````.-....` ``  ``  ``  `` ``` ``` `
+                                                                  ``  `` ``` ``` ``` .-:/++ooooooooo+/:. ``  ``  `` ``` ``` ``` `://+oooooooo++::-` ``  `` ``` ``` ```
+                                                                    `` ``` ``` ```.:+ooooooooooooooooooo+:.``  `` ``` ``` ````-+oooooooooooooooooo++:.``  `` ``` ``` `
+                                                                  ``  `` ``` ``-:+ooooooooooooooooooooooooo+-.` ``` ``` ```./+oooooooooooooooooooooooo+:.` ``` ``` ```
+                                                                    `` ``` ``-/oooooooooooooooooooooooooooooo+:.` ``` ```-+oooooooooooooooooooooooooooooo/-` ``` ``` `
+                                                                  `` ``` ``-/oooooooooooooooooooooooooooooooooo+:.` ```-+oooooooooooooooooooooooooooooooooo/.` ``` ```
+                                                                    `` ```:+ooooooooooooooooooooooooooooooooooooo+-```/ooooooooooooooooooooooooooooooooooooo+-`` ``` `
+                                                                  `` ````/oooooooooooooooooooooooooooooooooooooooo+ `:oooooooooooooooooooooooooooooooooooooooo/``` ```
+                                                                    `` `+ooooooooooooooooooooooooooooooooooooooooo/``/ooooooooooooooooooooooooooooooooooooooooo+```` `
+                                                                  `` `.+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/` ```
+                                                                    ``/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo:`` `
+                                                                  `` -oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-```
+                                                                    `+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+` `
+                                                                  ``.oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo.``
+                                                                    /oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo: `
+                                                                  ``+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+``
+                                                                    +oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+ `
+                                                                  ``+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+``
+                                                                    /oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/ `
+                                                                  ``-oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-``
+                                                                    `+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+` `
+                                                                  `` .oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo.```
+                                                                    ``:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/`` `
+                                                                  `` `./oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/` ```
+                                                                   ``` `/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/```` `
+                                                                  `` ``` /oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/``` ```
+                                                                   ``` ```:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/.` ``` `
+                                                                  `` ``` ``.+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+:` ``` ```
+                                                                   ``` ``` `.:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo/. ``` ``` `
+                                                                  `` ``` ``` `-/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+- ``` ``` ```
+                                                                   ``` ``` ``` `-/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+-```` ``` ``` `
+                                                                  `` ``` ``` ``` `-+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+-```` ``` ``` ```
+                                                                   ``` ``` ``` ``` `-+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo+-```` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` .-/oooooooooooooooooooooooooooooooooooooooooooooooooooooooo+-```` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` `-/oooooooooooooooooooooooooooooooooooooooooooooooooooo+-```` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` `-/oooooooooooooooooooooooooooooooooooooooooooooooo/-` `` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  `./+ooooooooooooooooooooooooooooooooooooooooooo/-` `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` ``  `.:+oooooooooooooooooooooooooooooooooooooo+/.  `` ``` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  `.-+oooooooooooooooooooooooooooooooooo+/.  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` ``  ``  ``-+oooooooooooooooooooooooooooooo+:.  ``  `` ``` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  ``  ``./oooooooooooooooooooooooooo/:.  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` ``  ``  ``  ``./+oooooooooooooooooooo+/-`  ``  ``  ``  `` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  ``  `` ````:+oooooooooooooooo+:.`` ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``  ``  ``  ``  `` ````-+oooooooooooo+-.`` ``  ``  ``  ``  `` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` -/oooooooo/-``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` .oooooo.``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                   ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                   ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `
+
+  "
+  sleep 1
+  system 'clear'
+  puts "
+  
+                                                                     ``  ``  `` ``` ``  ``  ``  ``  ``  ``  ``  ``  `` ``` ``` ``  ``  ``  ``  ``  ``  ``  ``  `` ``` `
+                                                                  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ```
+                                                                    ``  `` ``` ``` ``` ``` `-...-.```  ``  ``  ``  `` ``` ``` ``` ````.-....` ``  ``  ``  `` ``` ``` `
+                                                                  ``  `` ``` ``` ``` .-:/++ooooooooo+/:. ``  ``  `` ``` ``` ``` `://+oooooooo++::-` ``  `` ``` ``` ```
+                                                                    `` ``` ``` ```.:+ooooooooooooooooooo+:.``  `` ``` ``` ````-+oooooooooooooooooo++:.``  `` ``` ``` `
+                                                                  ``  `` ``` ``-:+ooooooooooooooooooooooooo+-.` ``` ``` ```./+oooooooooooooooooooooooo+:.` ``` ``` ```
+                                                                    `` ``` ``-/oooooooooooooooooooooooooooooo+:.` ``` ```-+oooooooooooooooooooooooooooooo/-` ``` ``` `
+                                                                  `` ``` ``-/oooooooooooooooooooooooooooooooooo+:.` ```-+oooooooooooooooooooooooooooooooooo/.` ``` ```
+                                                                    `` ```:+ooooooooooooooooooooooooooooooooooooo+-```/ooooooooooooooooooooooooooooooooooooo+-`` ``` `
+                                                                  `` ````/oooooooooooooooooooooooooooooooooooooooo+ `:oooooooooooooooooooooooooooooooooooooooo/``` ```
+                                                                    `` `+ooooooooooooooooooooooooooooooooooooooooo/``/ooooooooooooooooooooooooooooooooooooooooo+```` `
+                                                                  `` `.+oooooooooooooooooooooooooooooooooooooooooo. `ooooooooooooooooooooooooooooooooooooooooooo/` ```
+                                                                    ``/oooooooooooooooooooooooooooooooooooooooooo+``-oooooooooooooooooooooooooooooooooooooooooooo:`` `
+                                                                  `` -ooooooooooooooooooooooooooooooooooooooooooo/` /ooooooooooooooooooooooooooooooooooooooooooooo-```
+                                                                    `+ooooooooooooooooooooooooooooooooooooooooooo.`.oooooooooooooooooooooooooooooooooooooooooooooo+` `
+                                                                  ``.oooooooooooooooooooooooooooooooooooooooooooo.`.ooooooooooooooooooooooooooooooooooooooooooooooo.``
+                                                                    /oooooooooooooooooooooooooooooooooooooooooooo:``./ooooooooooooooooooooooooooooooooooooooooooooo: `
+                                                                  ``+ooooooooooooooooooooooooooooooooooooooooooooo+-``./ooooooooooooooooooooooooooooooooooooooooooo+``
+                                                                    +ooooooooooooooooooooooooooooooooooooooooooooooo+-``./ooooooooooooooooooooooooooooooooooooooooo+ `
+                                                                  ``+ooooooooooooooooooooooooooooooooooooooooooooooooo+.``-+ooooooooooooooooooooooooooooooooooooooo+``
+                                                                    /ooooooooooooooooooooooooooooooooooooooooooooooooooo+.`.-+ooooooooooooooooooooooooooooooooooooo/ `
+                                                                  ``-oooooooooooooooooooooooooooooooooooooooooooooooooooo+. `.+oooooooooooooooooooooooooooooooooooo-``
+                                                                    `+ooooooooooooooooooooooooooooooooooooooooooooooooo/- `-/+oooooooooooooooooooooooooooooooooooo+` `
+                                                                  `` .ooooooooooooooooooooooooooooooooooooooooooooooo/. `-+ooooooooooooooooooooooooooooooooooooooo.```
+                                                                    ``:ooooooooooooooooooooooooooooooooooooooooooo+:` `:+oooooooooooooooooooooooooooooooooooooooo/`` `
+                                                                  `` `./oooooooooooooooooooooooooooooooooooooooo/-` ./oooooooooooooooooooooooooooooooooooooooooo/` ```
+                                                                   ``` `/oooooooooooooooooooooooooooooooooooo+:.``-+ooooooooooooooooooooooooooooooooooooooooooo/```` `
+                                                                  `` ``` /ooooooooooooooooooooooooooooooooo/-.`.:ooooooooooooooooooooooooooooooooooooooooooooo/``` ```
+                                                                   ``` ```:ooooooooooooooooooooooooooooo+:..`-/oooooooooooooooooooooooooooooooooooooooooooooo/.` ``` `
+                                                                  `` ``` ``.+oooooooooooooooooooooooooo/```-+oooooooooooooooooooooooooooooooooooooooooooooo+:` ``` ```
+                                                                   ``` ``` `.:oooooooooooooooooooooooooo/``./ooooooooooooooooooooooooooooooooooooooooooooo/. ``` ``` `
+                                                                  `` ``` ``` `-/ooooooooooooooooooooooooo+: `:+ooooooooooooooooooooooooooooooooooooooooo+- ``` ``` ```
+                                                                   ``` ``` ``` `-/ooooooooooooooooooooooooo/. ./oooooooooooooooooooooooooooooooooooooo+-```` ``` ``` `
+                                                                  `` ``` ``` ``` `-+oooooooooooooooooooooooo+-` -+oooooooooooooooooooooooooooooooooo+-```` ``` ``` ```
+                                                                   ``` ``` ``` ``` `-+oooooooooooooooooooooooo/.``/ooooooooooooooooooooooooooooooo+-```` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` .-/ooooooooooooooooooooooo+-.`-+ooooooooooooooooooooooooooo+-```` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` `-/ooooooooooooooooooooooo/.``/oooooooooooooooooooooooo+-```` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` `-/oooooooooooooooooooooo+-`.-+oooooooooooooooooooo/-` `` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  `./+ooooooooooooooooooooo/``.:ooooooooooooooooo/-` `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` ``  `.:+oooooooooooooooooooo+. `/ooooooooooooo+/.  `` ``` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  `.-+ooooooooooooooooooo.``+ooooooooooo+/.  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` ``  ``  ``-+oooooooooooooooo/` -oooooooooo+:.  ``  `` ``` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  ``  ``./oooooooooooooo.``+oooooooo/:.  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``` ``  ``  ``  ``./+oooooooooo+.`.oooooo+/-`  ``  ``  ``  `` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  ``  `` ````:+oooooooo: `/oooo+:.`` ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``  ``  ``  ``  `` ````-+oooooo.``ooo+-.`` ``  ``  ``  ``  `` ``` ``` ``` ``` ```
+                                                                   ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` -/ooo/` :o/-``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` .:+.``:.``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                   ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                   ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `
+
+  "
+  sleep 1
+  system 'clear'
+  puts "
+                                                                    ``  ``  `  ``  ``  ``  ``  ``  ``  ``  ``  ``  ``  `  ``  ``  ``  ``  ``  ``  ``  ``  ``  ``  `   
+                                                                  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ```
+                                                                    ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ```  
+                                                                  ``  `` ``` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ```
+                                                                    `` ``` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``````` ``  ``  ``  ``  `` ``` ```  
+                                                                  ``  `` ``` ``` ``` ``` ``` ``` ``  ``  ``  `` ``` ``` ``` ``` ```  `  ``  ``  ``  ``  `` ``` ``` ```
+                                                                    `` ``` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``.:``` ``  ``  `````` ``` ``` ```  
+                                                                  `` ``` ``` ``` ``` ```  `` ``` ``  ``  ``  `` ``` ``` ``` ``` ``` //  ``  ``  ``````` `` ``` ``` ```
+                                                                    `` ``` ``` ``` ``` ```-``` ``  ``  ``  `` ``` ``` ``````` ``` `.oo``` ``  ``  `` ` ` ``` ``` ```  
+                                                                  `` ``` ``` ``` ``` ``` `+/```` ``  ``  ``  `` ``` ``` ``````` ```+so` ``` ``  ``      `` ``` ``` `` 
+                                                                    `` ``` ``` ``` ``` ```:s+-```` ``  ``  `` ``/```` ``` ``` ``` :oss-`` ``  ``  ``  `` ``` ``` ```  
+                                                                  `` ``` ``` ```  `` ``` `-sso/. ``  ``  ``  ``.o/` ``` ``` ```  -oo++/::::-..` `````` ``` ```  `  ```
+                                                                    `` ``` ```   ` ``` ````soss+-```.----..`` `+so-`` ``` ``` `.-osyhhhhhhhhhys+-```  `` ```  `` ```  
+                                                                  `` ``` ``` ``  ``` ``` ``oso:-:+syyhhhhhyso/-:+oo- `` ``` `.:shhhhhhhhhhhhhhhhhy+.``  `` `.-```` ```
+                                                                    `` ``` ``` ``` ``` ````o::oyhhhhhhhhhhhhhhhs/-+/....-.``-shhhhhhhhhhhhhhhhhhhhhy/````./+/``` ```  
+                                                                  `` ``` ``` ``` ``` ``` ``:ohhhhhhhhhhhhhhhhhhy+/oyyhhhhys//shhhhhhhhhhhhhhhhhhhhhhho`-+oo:`` ``` ```
+                                                                    `` ``` ``` ``` ``` ```.yhhhhhhhhhhhhhhhhhhs+yhhhhhhhhhhhho+hhhhhhhhhhhhhhhhhhhhhhh+`oo:  ``` ```  
+                                                                  ``  `` ```` `` ``` ``` `yhhhhhhhhhhhhhhhhhhyohhhhhhhhhhhhhhhyohhhhhhhhhhhhhhhhhhhhhhh./:```` ``` ```
+                                                                    `` ``` `.:-... ``` ``/hhhhhhhhhhhhhhhhhhhyhhhhhhhhhhhhhhhhhyhhhhhhhhhhhhhhhyyy++hshssssy. `` ```  
+                                                                  `` ``` ``` `:oo++//://+yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhhddm.`s/dmmmmm.` ``` ```
+                                                                    `` ``` ``` .+ooooo+//yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyysssyhhhhhymmmmmmmmmmddd:`yysmmmmm.``` ```  
+                                                                  `` ``` `...-/ooyyyyso+/+shhhhhhhhhhhhhhhhhhhhhhhhhhhhdddmmmdhso/ohsmmmmmmys+/::-..shommmmm-` ``` ```
+                                                                    `` ```/dmmmmmmmmmmmmmds:/yhhhhhhhhhyyysooyhhhhhhdmmmmmmmmmmmmdo-:mmmmmm-`/+osyhhhhommmmm-``` ``` `
+                                                                  `` ``` `/mmmmmmdhyyhdmmmmd/.shhddmmmmmmmmmho:+hhdmmmmmdhyyhdmmmmmy`hmmmmmo`+yyyy:-hhodmmmm-`o``` `` 
+                                                                    `` ```-mmmmmm-`-:::hmmmmd..dmmmmmmmmmmmmmmd/.ymmmmmo.`-:-:ymmmmmosmmmmmmmmmmmm-`yhyymmmm-`y- ``` `
+                                                                  `` ``` ``mmmmmm:`yhhhsmmmmm-`hmmmds/::/smmmmmm/`hmmm+`.yhhhh+hmmmmd/mmmmmmys+/:-``shhommmm-`y:`` `` 
+                                                                    `` ``` hmmmmm/`shhhdmmmmo`.dmmh.`:oys+:dmmmmh`:mmm/`+shhhhysmmmmm.mmmmmm+`:+osyhhhh+ysso.`s` ``` `
+                                                                  `` ```  `smmmmms/shhmmmmy:`.hmmm+`:sssssoommmmm.`dmmh.-shhhhydmmmmy`ymmmmmy`:hhhhhhhho::///+:``` `` 
+                                                                    ``  .:.ommmmmmmmmdhs+-`.:hmmmms`:sssossymmmmd``dmmmd+/oyhddmmmmd.`ommmmmm.`hhhhhhhhhyyys+:`` ``` `
+                                                                  ``   .--`/mmmmmy:-.`.-:+shh+mmmmmo./osssymmmmmo``ymmmmmdddmmmmmmy.`+ommmmmm/`shhhhhhhhddmdy` ``` `` 
+                                                                  ``` ``` -mmmmmh`-yhhhhhhhh+ommmmmdyssydmmmmms``+:/sdmmmmmmmmds:`-shsdmmmmmy`:hhhhhhhoymmmy``` ``` `
+                                                                  `` ``` ```mmmmmd`.hhhhhhhhhh+/ymmmmmmmmmmmmy/`.+ssy+::/ooo+/-..:shhhh++/:--..:hhhhhhhh/::-`  ``` `` 
+                                                                  ``` ``` `hmmmmm.`hhhhhhhhhhhy/:+yhdddhhy+-`-/syhhhhhyso+++osyhhhhhhh++osyyyhhhhhhhhhhhy.+:``` ``` `
+                                                                  `` ``` ```oyssoo.`yhhhhhhhhhhhhyo/:::---::+shhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh+:so+-``` `` 
+                                                                  ``` ``` `````` -/yhhhhohhhhhhhhhhhhsyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh+`.-:/+/.``` `
+                                                                  `` ``` ``` ``` ``/osyhh+shhhhhhhhhhhyyhhhhhhhhhhyyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhho-`` ````..` `` 
+                                                                  ``` ``` ``` ```.oososso-+hhhhhhhhhhhsshhhhhhhhhh/hhhhhhhhhhhhhhhhhhhhhyyyyyhhyyso/-.` ``` ``` ``  `
+                                                                  `` ``` ``` ``` `/soo+:..` -+yhhhhhhhhhs+shhhhhhhho:yhhhhhhhhhhhhhhhhhhhhy-+/..-.```` ``` ``` ``` `` 
+                                                                  ``` ``` ``` ``-+/-````  `` `-:+ossoo+/-://osyyyyy/-ohhhhhhhhhhhhhhhhhho-/so`` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ````.`  ``` ``` `` ``` `:/++/-.````-/++++--+shhhhhhhhhhhys/.`:oos- `` ``` ``` ``` ``` `` 
+                                                                  ``` ``` ``` ``` ``` ``````  ``  ``oo:. ``` ```-oosso+:..:/+oooo+/:.`   `./oo` ``` ```  ``` `` ``` `
+                                                                  `` ``` ``` ``` ``` ``````  ``  `` ./` ``` ``` ``-ososso-  `` ``  ```  ``  `.+/`` ``` ````` ` ``` `` 
+                                                                  ``` ``` ``` ``` ``````` ``  ``  `` ``` ``` ``` `:ssso/```` ``` ``  ``  `` ``-- `` ``` `   ``` ``` `
+                                                                  `` ``` ``` ``` ``` `````   ``  `````` ``` ``` ````+os+``` ``` ``` ``  ``  `` ``` ``` ``` ``` ``` `` 
+                                                                  ``` ``` ``` ``` ```     ``  `` ``` ``` ``` ``` ``.oo.  ``` ``` ``` ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` `+/ ``` ``` ```` `  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                  ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ```.``` ``` ``  `` ```  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``  ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                  ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``` ``  ``  ``  ``  `` ``` ``` ``` ``` ``` `
+                                                                  `` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``` ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `` 
+                                                                    `` ``` ``` ``  ``  ``  ``  ``  ``  ``  ``  `` ``` ``` ``  ``  ``  ``  ``  ``  ``  ``  `` ``` ``` `
+
+  "
+  sleep 0.5
+  system 'clear'
+  self.wrong
 end
 # def self.sam_say(str)
 #     %x(say '#{str}') 
