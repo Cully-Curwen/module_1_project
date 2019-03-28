@@ -32,30 +32,39 @@ class GameMaster
     @test.save
   end
 
-  def self.time_dif(start_time, end_time)
+def self.time_dif
+    # finds the start of the session (when first test created) and last updated_at (time of last answer)
+    start_time = Test.where(session: @session).minimum(:created_at)
+    end_time = Test.where(session: @session).maximum(:updated_at)
     elapsed_seconds = end_time.to_f - start_time.to_f
   end
 
   def self.high_score_check
+    # finds number of correct answers and time taken for the session
     session_stats = Test.where(session: @session, credibility: true)
     score = session_stats.count
-    time = session_stats.map{ |x| self.time_dif(x.created_at, x.updated_at) }.reduce(:+)
+    time = self.time_diff
     time ? time : time = 0
     if !@user.high_score
+      # if this is the first time playing set the seesion result as high score 
       @user.update(high_score: score, high_score_time: time, high_score_session: @session)
       puts "That's all I expected from you on your first go"
       puts "Guess that makes your high score: #{@user.high_score} correct answers"
       puts "taking you a #{@user.high_score_time.round(3)} seconds"
     elsif score > @user.high_score
+      # if this sesion score is the highest score update the users high score with this session score
       @user.update(high_score: score, high_score_time: time, high_score_session: @session)
       puts "Well you have out done yourself!"
       puts "You have a new high score: #{@user.high_score} correct anwers"
       puts "taking you a #{@user.high_score_time.round(3)} seconds"
     elsif score == @user.high_score && time < @user.high_score_time
+      # if the high score matches the saved high score, but is quicker, replace with this session score and time
+      @user.update(high_score: score, high_score_time: time, high_score_session: @session)
       puts "You have matched you high score of #{@user.high_score} correct anwers!"
       puts "Better yet you have got quicker taking #{time.round(3)} seconds"
       puts "Now you just need to get more answers right!"
     elsif score == @user.high_score && time > @user.high_score_time
+      # if the high score is the same but slower, just push text and leave persited high score and time
       puts "You have matched you high score of #{@user.high_score} correct anwers!"
       puts "But you where slower at #{time.round(3)} seconds"
       puts "Get Quicker!!!"
