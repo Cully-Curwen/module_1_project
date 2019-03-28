@@ -65,19 +65,28 @@ class GameMaster
   def self.end_session?
     # should the session end or not
     if @test.credibility
-      @live = true
-      @count += 1
-      puts "Congratulations, you got that right!"
-      sleep 1.5
+      @correct += 1
       system "clear"
+      # Styling.correct
+      puts "You have got #{@correct} correct so far"
+      @prompt.select("*"*20, "Next Question", help_color: :hidden)
     else
-      @live = false
-      system "clear"
-      Styling.you_suck
-      puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
-      GameMaster.high_score_check
-      puts "Now Go!!!"
-      @prompt.select("*"*20, "Leave", help_color: :hidden)
+      @live -= 1
+      # Styling.heart_break
+      if @live > 0
+
+        system "clear"
+        Styling.you_suck
+        puts "Lives: #{@coder.decode("&#10084;  ") * @live}"
+        puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
+        GameMaster.high_score_check
+        @prompt.select("*"*20, "Next Question", help_color: :hidden)
+      else
+        # Styling.game_over
+        puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
+        puts "Now Go!!!"
+        @prompt.select("*"*20, "Leave", help_color: :hidden)
+      end
     end
   end
   
@@ -86,11 +95,13 @@ class GameMaster
     @user = user
     @session = Test.maximum(:session) + 1
     @settings = settings
+    @correct = 0
     @count = 1
-    @live = true
-    while @live
+    @live = 3
+    while @live > 0
       system "clear"
       Styling.smart_graphic
+      puts "Lives: #{@coder.decode("&#10084;  ") * @live}"
       puts ("Question number #{@count} is:")
       # gets a question from the db
       self.get_question_from_db(category)
@@ -103,6 +114,7 @@ class GameMaster
       self.cred_of_answer
       # does the player get to continue
       self.end_session?
+      @count += 1
     end
   end
   
