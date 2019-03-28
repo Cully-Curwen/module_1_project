@@ -17,10 +17,14 @@ def self.new_page
     case @prompt.select(Styling.landing_page("Do I know you?"), choices, help_color: :hidden) 
     when 1
         user = User.sign_in
-        self.run(user)
+        if user
+            self.run(user)
+        end
     when 2
         user = User.register
-        self.run(user)
+        if user
+            self.run(user)
+        end
     end
 end
     

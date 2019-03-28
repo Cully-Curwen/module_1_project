@@ -15,10 +15,11 @@ class User < ActiveRecord::Base
         if User.find_by(name: name_str, password: password_str)
         else
             puts Styling.centre("Incorrect Values")
-            User.register
+            @prompt.select("", "Go Back",help_color: :hidden)
+            nil
         end
     end
-
+    
     def self.sign_in
         name_str = @prompt.ask(Styling.centre('What is your username?'))
         password_str = @prompt.mask(Styling.centre('What is your password?'))
@@ -27,7 +28,8 @@ class User < ActiveRecord::Base
             user
         else
             puts Styling.centre("Incorrect details, try again.")
-            User.sign_in
+            @prompt.select("", "Go Back", help_color: :hidden)
+            nil
         end
     end
     
