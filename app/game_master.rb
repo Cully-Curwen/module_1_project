@@ -74,7 +74,6 @@ class GameMaster
       @live = false
       system "clear"
       Styling.you_suck
-      puts "You got that wrong!"
       puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
       GameMaster.high_score_check
       puts "Now Go!!!"

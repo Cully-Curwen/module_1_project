@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
         name_str = @prompt.ask(Styling.centre('Username:'))
         password_str = @prompt.mask(Styling.centre('Password:'))
         User.find_or_create_by(name: name_str, password: password_str)
-        if User.find_by(name: name_str, password: password_str)
+        if result = User.find_by(name: name_str, password: password_str)
+            result
         else
             puts Styling.centre("Incorrect Values")
             @prompt.select("", "Go Back",help_color: :hidden)
@@ -39,7 +40,7 @@ class User < ActiveRecord::Base
             password_str = @prompt.mask(Styling.centre('What is your password?'))
             if result = User.find_by(:name => name_str, :password => password_str)
                 User.delete(result.id)
-                puts Styling.centre(Styling.centre("Account has been deleted. Please come back again"))
+                puts Styling.centre("Account has been deleted. Please come back again")
             else
                 puts Styling.centre("Incorrect details")
             end
