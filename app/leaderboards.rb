@@ -21,6 +21,11 @@
     "Vehicles"
   ]
 
+  def self.grand_master
+    session = self.high_scores.first
+    data = ["#{User.find_by(id: session.user_id).name}", "#{session.score}", "#{session.time}"]
+  end
+  
   def self.high_scores
     top_10 = Session.where(category: nil).order(score: :desc, time: :asc).limit(10)
   end
