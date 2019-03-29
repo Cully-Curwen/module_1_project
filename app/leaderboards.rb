@@ -50,8 +50,13 @@
     # searched database by categorys to find the highest score and the user
     header = ["Category", "Master", "Correct Answers", "Time (seconds)"]
     # rows start with everything cat high score - i.e. the grand master
-    top_user = Session.where(category: nil).order(score: :desc, time: :asc).first
-    rows = [["EVERYTHING", User.find_by(id: top_user.user_id).name, top_user.score, top_user.time]]
+    top_session = Session.where(category: nil).order(score: :desc, time: :asc).first
+    if top_session
+      rows = [["EVERYTHING", User.find_by(id: top_user.user_id).name, top_session.score, top_session.time]]
+    else
+      rows = [["EVERYTHING","-", "-", "-"]]
+    end
+    # rows = [["EVERYTHING", User.find_by(id: top_user.user_id).name, top_user.score, top_user.time]]
     @category_keys.map do |key|
       session = Session.where(category: "#{key}").order(score: :desc, time: :asc).first
       if session
@@ -76,8 +81,8 @@
   def self.pb_scores
     # searched database by categorys to find the highest score and the user
     # rows start with everything cat high score 
-    top_user = Session.where(user_id: @user.id, category: nil).order(score: :desc, time: :asc).first
-    rows = [["EVERYTHING", top_user.score, top_user.time]]
+    top_session = Session.where(user_id: @user.id, category: nil).order(score: :desc, time: :asc).first
+    top_session ? rows = [["EVERYTHING", top_session.score, top_session.time]] : rows = [["EVERYTHING", "-", "-"]]
     @category_keys.map do |key|
       session = Session.where(user_id: @user.id, category: "#{key}").order(score: :desc, time: :asc).first
       if session
