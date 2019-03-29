@@ -17,7 +17,7 @@ class LandingPage
         Styling.centre("Lets Go"),
         Styling.centre("Trial by Category"),
         Styling.centre("High Scores"),
-        Styling.centre("Apprentice the GM"),
+        Styling.centre("Shadow the GM"),
         Styling.centre("Account Management"),
         Styling.centre("Exit")
       ]
@@ -31,7 +31,7 @@ class LandingPage
       when Styling.centre("The Lists of Standing")
         system "clear"
         Leaderboard.menu(@user)
-      when Styling.centre("Apprentice the GM")
+      when Styling.centre("Shadow the GM")
         system "clear"
         GameMaster.apprenticeship(user: @user, session: Leaderboard.high_scores.first.id)
       when Styling.centre("Account Management")
