@@ -41,7 +41,7 @@ class GameMaster
     time ? time : time = 0
     user_best_session = Session.find_by(id: @user.high_score_session_id)
     if !@user.high_score_session_id
-      # if this is the first time playing set the seesion result as high score 
+      # if this is the first time playing set the session result as high score 
       @user.update(high_score_session_id: @session.id)
       puts "That's all I expected from you on your first go"
       puts "Guess that makes your high score: #{score} correct answers"
@@ -131,6 +131,53 @@ class GameMaster
       # does the player get to continue
       self.end_session?(category)
       @count += 1
+    end
+  end
+
+  def self.apprenticeship(user: user, session: session)
+    @user = user
+    @session = session
+    @correct = 0
+    @count = 1
+    self.get_apprentice_question
+    while !@question_list.empty?
+      system "clear"
+      # Styling. - appentice graphic
+      puts ("Question number #{@count} is:")
+      # gets a question
+      @question = @question_list.shift
+      # creates an array of answer options and creates a test instance in the db
+      options_collection = [@question.correct_answer, @question.incorrect_answer_01, @question.incorrect_answer_02, @question.incorrect_answer_03]
+      @options = options_collection.map{ |string| @coder.decode(string) }.sample(4)
+      question_decoded = @coder.decode(@question.question)
+      # anser the question
+      @answer = @prompt.select(Styling.landing_page(question_decoded), @options, help_color: :hidden)
+      # checks if answer is good and score if true
+      self.apprentice_check
+      @count += 1
+    end
+    puts "End of ......."
+    @prompt.select("*"*20, "Leave", help_color: :hidden)
+  end
+  
+  def self.get_apprentice_question
+    # pull a questions from db 
+    @session_range = Test.where(session: @session).order(created_at: :asc)
+    @question_list = []
+    @session_range.map{ |x| @question_list << Question.find_by(id: x.question_id) }
+  end
+
+  def self.apprentice_check
+    if @answer == @coder.decode(@question.correct_answer)
+      @correct += 1
+      system "clear"
+      Styling.correct_banner
+      puts "You have got #{@correct} correct so far"
+      @prompt.select("*"*20, "Next Question", help_color: :hidden)
+    else
+      Styling.wrong
+      puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
+      @prompt.select("*"*20, "Next Question", help_color: :hidden)
     end
   end
   
