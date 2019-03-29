@@ -20,6 +20,8 @@ class Category
       "Entertainment: Television"
     when "Games"
       "Entertainment: Video Games"
+    when "Computer Science"
+      "Science: Computers"
     when "History"
       "History"
     when "Sports"

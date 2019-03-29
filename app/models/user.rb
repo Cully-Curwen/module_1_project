@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-    has_many :tests
+    has_many :sessions
+    has_many :tests, through: :sessions
     has_many :questions, through: :tests
 
     @prompt = TTY::Prompt.new
