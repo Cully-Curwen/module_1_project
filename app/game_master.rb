@@ -143,7 +143,7 @@ class GameMaster
     while !@question_list.empty?
       system "clear"
       # Styling. - appentice graphic
-      puts ("Question number #{@count} is:")
+      puts ("The Grand Master's question number #{@count} was:")
       # gets a question
       @question = @question_list.shift
       # creates an array of answer options and creates a test instance in the db
@@ -156,7 +156,9 @@ class GameMaster
       self.apprentice_check
       @count += 1
     end
-    puts "End of ......."
+    system "clear"
+    # banner for end
+    puts "You got #{@correct} out of #{@count - 1} questions correct"
     @prompt.select("*"*20, "Leave", help_color: :hidden)
   end
   
@@ -175,8 +177,10 @@ class GameMaster
       puts "You have got #{@correct} correct so far"
       @prompt.select("*"*20, "Next Question", help_color: :hidden)
     else
+      system "clear"
       Styling.wrong
       puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
+      puts "You have got #{@correct} correct so far"
       @prompt.select("*"*20, "Next Question", help_color: :hidden)
     end
   end
