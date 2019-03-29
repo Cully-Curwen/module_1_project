@@ -1,24 +1,41 @@
-class Leaderboard
+  class Leaderboard
 
   @prompt = TTY::Prompt.new
   @coder = HTMLEntities.new
   @pastel = Pastel.new
 
+  @category_keys = [
+    "Entertainment: Books",
+    "Entertainment: Cartoon & Animations",
+    "Entertainment: Film",
+    "Entertainment: Japanese Anime & Manga",
+    "Entertainment: Music",
+    "Entertainment: Television",
+    "Entertainment: Video Games",
+    "General Knowledge",
+    "Geography",
+    "History",
+    "Science & Nature",
+    "Science: Computers",
+    "Sports",
+    "Vehicles"
+  ]
+
   def self.high_scores
-    top_10 = User.order(high_score: :desc, high_score_time: :asc).limit(10)
-    top_10.select{ |x| !!x.high_score }
+    top_10 = Session.where(category: nil).order(score: :desc, time: :asc).limit(10)
   end
+
   def self.print_out(array, type)
     rows = []
     case type
     when "masters"
       header = ["Master", "Correct Answers", "Time (seconds)"]
-      array.map do |x|
-        y = ["#{x.name}", "#{x.high_score}", "#{x.high_score_time}"]
-        rows << y
+      array.map do |session|
+        rows << ["#{User.find_by(id: session.user_id).name}", "#{session.score}", "#{session.time}"]
       end
     when "pbs"
       header = ["Category", "Correct Answers", "Time (seconds)"]
+      rows = array
     else
       puts "Error in leaderboards.print_out method --> case 'type' - failed"
     end
@@ -28,28 +45,19 @@ class Leaderboard
     end
     puts output    
   end
-
-  def self.time_dif(session)
-    # finds the start of the session (when first test created) and last updated_at (time of last answer)
-    start_time = Test.where(session: session).minimum(:created_at)
-    end_time = Test.where(session: session).maximum(:updated_at)
-    elapsed_seconds = end_time.to_f - start_time.to_f
-    elapsed_seconds.to_i
-  end
   
   def self.cat_score
     # searched database by categorys to find the highest score and the user
-    category_keys = ["Entertainment: Books", "Entertainment: Cartoon & Animations", "Entertainment: Film", "Entertainment: Japanese Anime & Manga", "Entertainment: Music", "Entertainment: Television", "Entertainment: Video Games", "General Knowledge", "Geography", "History", "Science & Nature", "Science: Computers", "Sports", "Vehicles"]
     header = ["Category", "Master", "Correct Answers", "Time (seconds)"]
     # rows start with everything cat high score - i.e. the grand master
-    top_user = self.high_scores.first
-    rows = [["EVERYTHING", top_user.name, top_user.high_score, top_user.high_score_time]]
-    category_keys.map do |key|
-      search = Test.find_by_sql("SELECT user_id, session FROM tests GROUP BY session HAVING category = '#{key}' ORDER BY COUNT(session) DESC Limit 1").first
-      if search
-        name = User.find_by(id: search.user_id).name
-        score = Test.where(session: search.session, credibility: 't').count
-        time = self.time_dif(search.session)
+    top_user = Session.where(category: nil).order(score: :desc, time: :asc).first
+    rows = [["EVERYTHING", User.find_by(id: top_user.user_id).name, top_user.score, top_user.time]]
+    @category_keys.map do |key|
+      session = Session.where(category: "#{key}").order(score: :desc, time: :asc).first
+      if session
+        name = User.find_by(id: session.user_id).name
+        score = session.score
+        time = session.time
         rows << [key, name, "#{score}", "#{time}"]
       else
         name = "-"
@@ -65,8 +73,24 @@ class Leaderboard
     puts output   
   end
   
-  def self.pb
-    
+  def self.pb_scores
+    # searched database by categorys to find the highest score and the user
+    # rows start with everything cat high score 
+    top_user = Session.where(user_id: @user.id, category: nil).order(score: :desc, time: :asc).first
+    rows = [["EVERYTHING", top_user.score, top_user.time]]
+    @category_keys.map do |key|
+      session = Session.where(user_id: @user.id, category: "#{key}").order(score: :desc, time: :asc).first
+      if session
+        score = session.score
+        time = session.time
+        rows << [key, "#{score}", "#{time}"]
+      else
+        score = "-"
+        time = "-"
+        rows << [key, score, time]
+      end
+    end 
+    rows
   end
   
   def self.top_quartile
@@ -96,7 +120,7 @@ class Leaderboard
         self.cat_score
         @prompt.select("", "Go Back",help_color: :hidden)
       when 3
-        self.print_out("nothing", "pbs")  
+        self.print_out(self.pb_scores, "pbs")  
         @prompt.select("", "Go Back",help_color: :hidden)
       else
         live = false
