@@ -16,7 +16,7 @@ class LandingPage
       options = [
         Styling.centre("Lets Go"),
         Styling.centre("Trial by Category"),
-        Styling.centre("High Scores"),
+        Styling.centre("The Lists of Standing"),
         Styling.centre("Shadow the GM"),
         Styling.centre("Account Management"),
         Styling.centre("Exit")
