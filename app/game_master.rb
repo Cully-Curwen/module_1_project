@@ -19,7 +19,7 @@ class GameMaster
     # creates an array of answer options and creates a test instance in the db
     options_collection = [@question.correct_answer, @question.incorrect_answer_01, @question.incorrect_answer_02, @question.incorrect_answer_03]
     @options = options_collection.map{ |string| @coder.decode(string) }.sample(4)
-    @test = Test.create(user_id: @user.id, question_id: @question.id, session: @session)
+    @test = Test.create(user_id: @user.id, question_id: @question.id, session: @session.id)
     if category
       @test.update(category: category)
     end
@@ -32,45 +32,51 @@ class GameMaster
     @test.save
   end
 
-def self.time_dif
-    # finds the start of the session (when first test created) and last updated_at (time of last answer)
-    start_time = Test.where(session: @session).minimum(:created_at)
-    end_time = Test.where(session: @session).maximum(:updated_at)
-    elapsed_seconds = end_time.to_f - start_time.to_f
-  end
-
   def self.high_score_check(category)
     # check that the session is not a category session
     category ? return : true
     # finds number of correct answers and time taken for the session
-    session_stats = Test.where(session: @session, credibility: true)
-    score = session_stats.count
-    time = self.time_dif
+    score = @session.score
+    time = @session.time
     time ? time : time = 0
-    if !@user.high_score
+    user_best_session = Session.find_by(id: @user.high_score_session_id)
+    if !@user.high_score_session_id
       # if this is the first time playing set the seesion result as high score 
-      @user.update(high_score: score, high_score_time: time, high_score_session: @session)
+      @user.update(high_score_session_id: @session.id)
       puts "That's all I expected from you on your first go"
-      puts "Guess that makes your high score: #{@user.high_score} correct answers"
-      puts "taking you a #{@user.high_score_time.round(3)} seconds"
-    elsif score > @user.high_score
+      puts "Guess that makes your high score: #{score} correct answers"
+      puts "taking you a #{time} seconds"
+    elsif score > user_best_session.score
       # if this sesion score is the highest score update the users high score with this session score
-      @user.update(high_score: score, high_score_time: time, high_score_session: @session)
+      @user.update(high_score_session_id: @session.id)
       puts "Well you have out done yourself!"
-      puts "You have a new high score: #{@user.high_score} correct anwers"
-      puts "taking you a #{@user.high_score_time.round(3)} seconds"
-    elsif score == @user.high_score && time < @user.high_score_time
+      puts "You have a new high score: #{score} correct anwers"
+      puts "taking you a #{time} seconds"
+    elsif score == user_best_session.score && time < user_best_session.time
       # if the high score matches the saved high score, but is quicker, replace with this session score and time
       @user.update(high_score: score, high_score_time: time, high_score_session: @session)
-      puts "You have matched you high score of #{@user.high_score} correct anwers!"
-      puts "Better yet you have got quicker taking #{time.round(3)} seconds"
+      puts "You have matched your high score of #{score} correct anwers!"
+      puts "Better yet you have got quicker taking #{time} seconds"
       puts "Now you just need to get more answers right!"
-    elsif score == @user.high_score && time > @user.high_score_time
+    elsif score == user_best_session.score && time > user_best_session.time
       # if the high score is the same but slower, just push text and leave persited high score and time
-      puts "You have matched you high score of #{@user.high_score} correct anwers!"
-      puts "But you where slower at #{time.round(3)} seconds"
+      puts "You have matched you high score of #{score} correct anwers!"
+      puts "But you where slower at #{time} seconds"
       puts "Get Quicker!!!"
     end
+  end
+
+  def self.time_dif
+    # finds the start of the session (when first test created) and last updated_at (time of last answer)
+    start_time = Test.where(session: @session.id).minimum(:created_at)
+    end_time = Test.where(session: @session.id).maximum(:updated_at)
+    elapsed_seconds = end_time.to_f - start_time.to_f
+    elapsed_seconds.to_i
+  end
+
+  def self.session_data
+    score = Test.where(session: @session.id, credibility: 't').count
+    @session.update(time: self.time_dif, score: score)
   end
   
   def self.end_session?(category)
@@ -85,16 +91,15 @@ def self.time_dif
       @live -= 1
       Styling.heart_break
       if @live > 0
-        # system "clear"
-        # Styling.wrong
         puts "Lives: #{@coder.decode("&#10084;  ") * @live}"
         puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
-        GameMaster.high_score_check(category)
         @prompt.select("*"*20, "Next Question", help_color: :hidden)
       else
+        self.session_data
         system 'clear'
         Styling.game_over
         puts "The correct answer was #{@coder.decode(@question.correct_answer)}"
+        GameMaster.high_score_check(category)
         puts "Now Go!!!"
         @prompt.select("*"*20, "Leave", help_color: :hidden)
       end
@@ -104,8 +109,8 @@ def self.time_dif
   def self.run(user: user, settings: settings = nil, category: category = nil)
     # method that run the game session
     @user = user
-    @session = Test.maximum(:session) + 1
-    @settings = settings
+    category ? @session = Session.create(user_id: @user.id, category: category) : @session =Session.create(user_id: @user.id)
+    @settings = settings # never implemented 
     @correct = 0
     @count = 1
     @live = 3

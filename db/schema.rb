@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_185730) do
+ActiveRecord::Schema.define(version: 2019_03_29_093730) do
 
   create_table "questions", force: :cascade do |t|
     t.string "category"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_03_27_185730) do
     t.string "incorrect_answer_01"
     t.string "incorrect_answer_02"
     t.string "incorrect_answer_03"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "score"
+    t.integer "time"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,9 +48,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_185730) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password"
-    t.integer "high_score"
-    t.integer "high_score_time"
-    t.integer "high_score_session"
+    t.integer "high_score_session_id"
   end
 
 end
