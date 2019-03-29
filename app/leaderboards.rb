@@ -52,7 +52,7 @@
     # rows start with everything cat high score - i.e. the grand master
     top_session = Session.where(category: nil).order(score: :desc, time: :asc).first
     if top_session
-      rows = [["EVERYTHING", User.find_by(id: top_user.user_id).name, top_session.score, top_session.time]]
+      rows = [["EVERYTHING", User.find_by(id: top_session.user_id).name, top_session.score, top_session.time]]
     else
       rows = [["EVERYTHING","-", "-", "-"]]
     end
@@ -97,18 +97,6 @@
     end 
     rows
   end
-  
-  def self.top_quartile
-    
-  end
-
-  def self.median_high_score
-
-  end
-
-  def self.bottom_quartlie
-
-  end
 
   def self.menu(user)
     @user = user
@@ -117,14 +105,21 @@
     live = true
     while live
       system "clear"
+      Styling.the_leaders
       case @prompt.select(querry, choices, help_color: :hidden)
       when 1
+        system 'clear'
+        Styling.knowledge
         self.print_out(self.high_scores, "masters")
         @prompt.select("", "Go Back",help_color: :hidden)
       when 2
+        system 'clear'
+        Styling.master
         self.cat_score
         @prompt.select("", "Go Back",help_color: :hidden)
       when 3
+        system 'clear'
+        Styling.your_best
         self.print_out(self.pb_scores, "pbs")  
         @prompt.select("", "Go Back",help_color: :hidden)
       else
