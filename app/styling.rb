@@ -524,6 +524,27 @@ system 'clear'
   system 'clear'
   self.wrong
 end
+
+def self.your_best
+  puts "                                                                                                                                                                                                   
+                              YYYYYYY       YYYYYYY     OOOOOOOOO     UUUUUUUU     UUUUUUUURRRRRRRRRRRRRRRRR        BBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEE   SSSSSSSSSSSSSSS TTTTTTTTTTTTTTTTTTTTTTT
+                              Y:::::Y       Y:::::Y   OO:::::::::OO   U::::::U     U::::::UR::::::::::::::::R       B::::::::::::::::B  E::::::::::::::::::::E SS:::::::::::::::ST:::::::::::::::::::::T
+                              Y:::::Y       Y:::::Y OO:::::::::::::OO U::::::U     U::::::UR::::::RRRRRR:::::R      B::::::BBBBBB:::::B E::::::::::::::::::::ES:::::SSSSSS::::::ST:::::::::::::::::::::T
+                              Y::::::Y     Y::::::YO:::::::OOO:::::::OUU:::::U     U:::::UURR:::::R     R:::::R     BB:::::B     B:::::BEE::::::EEEEEEEEE::::ES:::::S     SSSSSSST:::::TT:::::::TT:::::T
+                              YYY:::::Y   Y:::::YYYO::::::O   O::::::O U:::::U     U:::::U   R::::R     R:::::R       B::::B     B:::::B  E:::::E       EEEEEES:::::S            TTTTTT  T:::::T  TTTTTT
+                                 Y:::::Y Y:::::Y   O:::::O     O:::::O U:::::D     D:::::U   R::::R     R:::::R       B::::B     B:::::B  E:::::E             S:::::S                    T:::::T        
+                                  Y:::::Y:::::Y    O:::::O     O:::::O U:::::D     D:::::U   R::::RRRRRR:::::R        B::::BBBBBB:::::B   E::::::EEEEEEEEEE    S::::SSSS                 T:::::T        
+                                   Y:::::::::Y     O:::::O     O:::::O U:::::D     D:::::U   R:::::::::::::RR         B:::::::::::::BB    E:::::::::::::::E     SS::::::SSSSS            T:::::T        
+                                    Y:::::::Y      O:::::O     O:::::O U:::::D     D:::::U   R::::RRRRRR:::::R        B::::BBBBBB:::::B   E:::::::::::::::E       SSS::::::::SS          T:::::T        
+                                     Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U   R::::R     R:::::R       B::::B     B:::::B  E::::::EEEEEEEEEE          SSSSSS::::S         T:::::T        
+                                     Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U   R::::R     R:::::R       B::::B     B:::::B  E:::::E                         S:::::S        T:::::T        
+                                     Y:::::Y       O::::::O   O::::::O U::::::U   U::::::U   R::::R     R:::::R       B::::B     B:::::B  E:::::E       EEEEEE            S:::::S        T:::::T        
+                                     Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U RR:::::R     R:::::R     BB:::::BBBBBB::::::BEE::::::EEEEEEEE:::::ESSSSSSS     S:::::S      TT:::::::TT      
+                                  YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU  R::::::R     R:::::R     B:::::::::::::::::B E::::::::::::::::::::ES::::::SSSSSS:::::S      T:::::::::T      
+                                  Y:::::::::::Y       OO:::::::::OO       UU:::::::::UU    R::::::R     R:::::R     B::::::::::::::::B  E::::::::::::::::::::ES:::::::::::::::SS       T:::::::::T      
+                                  YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU      RRRRRRRR     RRRRRRR     BBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEE SSSSSSSSSSSSSSS         TTTTTTTTTTT      
+  "
+end
 # def self.sam_say(str)
 #     %x(say '#{str}') 
 # end
