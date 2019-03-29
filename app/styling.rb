@@ -63,12 +63,34 @@ def self.puts_super_super_fast(str)
       # @PASTEL.on_bright_white(str)
       str
   end
+  
+  def self.gm_text(str)
+        str = str.upcase
+       @PASTEL.on_bright_green(str)
+  end
+
+
+  def self.current_grand_master
+    gm = Leaderboard.grand_master
+    if gm
+      puts_super_fast "         All HAIL THE GRANDMASTER " + gm_text("#{Leaderboard.grand_master[0]}")
+      puts "\n"
+      puts_super_fast "         CAN YOU BEAT HIS SCORE OF " + gm_text("#{Leaderboard.grand_master[1]} ") + "??"
+      puts "\n"
+    else 
+      ""
+    end
+  end
+
 
   def self.fake_loading_bar
     puts_fast "████████████████ GETTING INFO █████████████████"
     system 'clear'
     self.smart_graphic
-    puts_super_super_fast "████████████████ GATHERED INFO ████████████████"
+    puts_super_super_fast "████████████████ GATHERED INFO ████████████████
+    "
+    self.current_grand_master
+    puts_fast "███████████████████████████████████████████████"
   end
   def self.landing_page(str)
       # @PASTEL.bright_white.on_bright_black.bold("#{str}")
@@ -577,7 +599,7 @@ def self.master
 
 end
 
-def self.knowledge
+def self.top_10
   puts "
                                                                                                                                                             
                                                                                                                                                             

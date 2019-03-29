@@ -25,7 +25,7 @@
     session = self.high_scores.first
     data = ["#{User.find_by(id: session.user_id).name}", "#{session.score}", "#{session.time}"]
   end
-  
+
   def self.high_scores
     top_10 = Session.where(category: nil).order(score: :desc, time: :asc).limit(10)
   end
@@ -114,7 +114,7 @@
       case @prompt.select(querry, choices, help_color: :hidden)
       when 1
         system 'clear'
-        Styling.knowledge
+        Styling.master
         self.print_out(self.high_scores, "masters")
         @prompt.select("", "Go Back",help_color: :hidden)
       when 2
