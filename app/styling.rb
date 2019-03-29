@@ -407,7 +407,7 @@ system 'clear'
                                                                    ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `
 
   "
-  sleep 1
+  sleep 0.5
   system 'clear'
   puts "
   
@@ -464,7 +464,7 @@ system 'clear'
                                                                    ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` ``  ``  ``  ``  ``  ``  `` ``` ``` ``` ``` `
 
   "
-  sleep 1
+  sleep 0.5
   system 'clear'
   puts "
                                                                     ``  ``  `  ``  ``  ``  ``  ``  ``  ``  ``  ``  ``  `  ``  ``  ``  ``  ``  ``  ``  ``  ``  ``  `   
@@ -542,8 +542,112 @@ def self.your_best
                                      Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U RR:::::R     R:::::R     BB:::::BBBBBB::::::BEE::::::EEEEEEEE:::::ESSSSSSS     S:::::S      TT:::::::TT      
                                   YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU  R::::::R     R:::::R     B:::::::::::::::::B E::::::::::::::::::::ES::::::SSSSSS:::::S      T:::::::::T      
                                   Y:::::::::::Y       OO:::::::::OO       UU:::::::::UU    R::::::R     R:::::R     B::::::::::::::::B  E::::::::::::::::::::ES:::::::::::::::SS       T:::::::::T      
-                                  YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU      RRRRRRRR     RRRRRRR     BBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEE SSSSSSSSSSSSSSS         TTTTTTTTTTT      
+                                  YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU      RRRRRRRR     RRRRRRR     BBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEE SSSSSSSSSSSSSSS         TTTTTTTTTTT
+                                  
+                                  
+
+
+
+
   "
+end
+
+def self.master
+                        puts "
+                                                                                                                                                                                                       
+                                                                                                                                                                                                       
+                                MMMMMMMM               MMMMMMMM               AAA                  SSSSSSSSSSSSSSS TTTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR      SSSSSSSSSSSSSSS 
+                                M:::::::M             M:::::::M              A:::A               SS:::::::::::::::ST:::::::::::::::::::::TE::::::::::::::::::::ER::::::::::::::::R   SS:::::::::::::::S
+                                M::::::::M           M::::::::M             A:::::A             S:::::SSSSSS::::::ST:::::::::::::::::::::TE::::::::::::::::::::ER::::::RRRRRR:::::R S:::::SSSSSS::::::S
+                                M:::::::::M         M:::::::::M            A:::::::A            S:::::S     SSSSSSST:::::TT:::::::TT:::::TEE::::::EEEEEEEEE::::ERR:::::R     R:::::RS:::::S     SSSSSSS
+                                M::::::::::M       M::::::::::M           A:::::::::A           S:::::S            TTTTTT  T:::::T  TTTTTT  E:::::E       EEEEEE  R::::R     R:::::RS:::::S            
+                                M:::::::::::M     M:::::::::::M          A:::::A:::::A          S:::::S                    T:::::T          E:::::E               R::::R     R:::::RS:::::S            
+                                M:::::::M::::M   M::::M:::::::M         A:::::A A:::::A          S::::SSSS                 T:::::T          E::::::EEEEEEEEEE     R::::RRRRRR:::::R  S::::SSSS         
+                                M::::::M M::::M M::::M M::::::M        A:::::A   A:::::A          SS::::::SSSSS            T:::::T          E:::::::::::::::E     R:::::::::::::RR    SS::::::SSSSS    
+                                M::::::M  M::::M::::M  M::::::M       A:::::A     A:::::A           SSS::::::::SS          T:::::T          E:::::::::::::::E     R::::RRRRRR:::::R     SSS::::::::SS  
+                                M::::::M   M:::::::M   M::::::M      A:::::AAAAAAAAA:::::A             SSSSSS::::S         T:::::T          E::::::EEEEEEEEEE     R::::R     R:::::R       SSSSSS::::S 
+                                M::::::M    M:::::M    M::::::M     A:::::::::::::::::::::A                 S:::::S        T:::::T          E:::::E               R::::R     R:::::R            S:::::S
+                                M::::::M     MMMMM     M::::::M    A:::::AAAAAAAAAAAAA:::::A                S:::::S        T:::::T          E:::::E       EEEEEE  R::::R     R:::::R            S:::::S
+                                M::::::M               M::::::M   A:::::A             A:::::A   SSSSSSS     S:::::S      TT:::::::TT      EE::::::EEEEEEEE:::::ERR:::::R     R:::::RSSSSSSS     S:::::S
+                                M::::::M               M::::::M  A:::::A               A:::::A  S::::::SSSSSS:::::S      T:::::::::T      E::::::::::::::::::::ER::::::R     R:::::RS::::::SSSSSS:::::S
+                                M::::::M               M::::::M A:::::A                 A:::::A S:::::::::::::::SS       T:::::::::T      E::::::::::::::::::::ER::::::R     R:::::RS:::::::::::::::SS 
+                                MMMMMMMM               MMMMMMMMAAAAAAA                   AAAAAAA SSSSSSSSSSSSSSS         TTTTTTTTTTT      EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR SSSSSSSSSSSSSSS   
+                                                                                                                                                                                                                                                                                                                                                                                                       
+    "                                                                                                                                                                                                 
+
+end
+
+def self.knowledge
+  puts "
+                                                                                                                                                            
+                                                                                                                                                            
+                                                          TTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO     PPPPPPPPPPPPPPPPP          1111111        000000000     
+                                                          T:::::::::::::::::::::T   OO:::::::::OO   P::::::::::::::::P        1::::::1      00:::::::::00   
+                                                          T:::::::::::::::::::::T OO:::::::::::::OO P::::::PPPPPP:::::P      1:::::::1    00:::::::::::::00 
+                                                          T:::::TT:::::::TT:::::TO:::::::OOO:::::::OPP:::::P     P:::::P     111:::::1   0:::::::000:::::::0
+                                                          TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  P::::P     P:::::P        1::::1   0::::::0   0::::::0
+                                                                  T:::::T        O:::::O     O:::::O  P::::P     P:::::P        1::::1   0:::::0     0:::::0
+                                                                  T:::::T        O:::::O     O:::::O  P::::PPPPPP:::::P         1::::1   0:::::0     0:::::0
+                                                                  T:::::T        O:::::O     O:::::O  P:::::::::::::PP          1::::l   0:::::0 000 0:::::0
+                                                                  T:::::T        O:::::O     O:::::O  P::::PPPPPPPPP            1::::l   0:::::0 000 0:::::0
+                                                                  T:::::T        O:::::O     O:::::O  P::::P                    1::::l   0:::::0     0:::::0
+                                                                  T:::::T        O:::::O     O:::::O  P::::P                    1::::l   0:::::0     0:::::0
+                                                                  T:::::T        O::::::O   O::::::O  P::::P                    1::::l   0::::::0   0::::::0
+                                                                TT:::::::TT      O:::::::OOO:::::::OPP::::::PP               111::::::1110:::::::000:::::::0
+                                                                T:::::::::T       OO:::::::::::::OO P::::::::P               1::::::::::1 00:::::::::::::00 
+                                                                T:::::::::T         OO:::::::::OO   P::::::::P               1::::::::::1   00:::::::::00   
+                                                                TTTTTTTTTTT           OOOOOOOOO     PPPPPPPPPP               111111111111     000000000     
+                                                                                                                                                                                                                                                                                                      
+"
+end
+
+def self.the_leaders
+  puts                                         "                                                                                                                                        
+                                                                                TTTTTTTTTTTTTTTTTTTTTTTHHHHHHHHH     HHHHHHHHHEEEEEEEEEEEEEEEEEEEEEE                                                     
+                                                                                T:::::::::::::::::::::TH:::::::H     H:::::::HE::::::::::::::::::::E                                                     
+                                                                                T:::::::::::::::::::::TH:::::::H     H:::::::HE::::::::::::::::::::E                                                     
+                                                                                T:::::TT:::::::TT:::::THH::::::H     H::::::HHEE::::::EEEEEEEEE::::E                                                     
+                                                                                TTTTTT  T:::::T  TTTTTT  H:::::H     H:::::H    E:::::E       EEEEEE                                                     
+                                                                                        T:::::T          H:::::H     H:::::H    E:::::E                                                                  
+                                                                                        T:::::T          H::::::HHHHH::::::H    E::::::EEEEEEEEEE                                                        
+                                                                                        T:::::T          H:::::::::::::::::H    E:::::::::::::::E                                                        
+                                                                                        T:::::T          H:::::::::::::::::H    E:::::::::::::::E                                                        
+                                                                                        T:::::T          H::::::HHHHH::::::H    E::::::EEEEEEEEEE                                                        
+                                                                                        T:::::T          H:::::H     H:::::H    E:::::E                                                                  
+                                                                                        T:::::T          H:::::H     H:::::H    E:::::E       EEEEEE                                                     
+                                                                                      TT:::::::TT      HH::::::H     H::::::HHEE::::::EEEEEEEE:::::E                                                     
+                                                                                      T:::::::::T      H:::::::H     H:::::::HE::::::::::::::::::::E                                                     
+                                                                                      T:::::::::T      H:::::::H     H:::::::HE::::::::::::::::::::E                                                     
+                                                                                      TTTTTTTTTTT      HHHHHHHHH     HHHHHHHHHEEEEEEEEEEEEEEEEEEEEEE                                                     
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                        LLLLLLLLLLL             EEEEEEEEEEEEEEEEEEEEEE               AAA               DDDDDDDDDDDDD        EEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR      SSSSSSSSSSSSSSS 
+                                        L:::::::::L             E::::::::::::::::::::E              A:::A              D::::::::::::DDD     E::::::::::::::::::::ER::::::::::::::::R   SS:::::::::::::::S
+                                        L:::::::::L             E::::::::::::::::::::E             A:::::A             D:::::::::::::::DD   E::::::::::::::::::::ER::::::RRRRRR:::::R S:::::SSSSSS::::::S
+                                        LL:::::::LL             EE::::::EEEEEEEEE::::E            A:::::::A            DDD:::::DDDDD:::::D  EE::::::EEEEEEEEE::::ERR:::::R     R:::::RS:::::S     SSSSSSS
+                                          L:::::L                 E:::::E       EEEEEE           A:::::::::A             D:::::D    D:::::D   E:::::E       EEEEEE  R::::R     R:::::RS:::::S            
+                                          L:::::L                 E:::::E                       A:::::A:::::A            D:::::D     D:::::D  E:::::E               R::::R     R:::::RS:::::S            
+                                          L:::::L                 E::::::EEEEEEEEEE            A:::::A A:::::A           D:::::D     D:::::D  E::::::EEEEEEEEEE     R::::RRRRRR:::::R  S::::SSSS         
+                                          L:::::L                 E:::::::::::::::E           A:::::A   A:::::A          D:::::D     D:::::D  E:::::::::::::::E     R:::::::::::::RR    SS::::::SSSSS    
+                                          L:::::L                 E:::::::::::::::E          A:::::A     A:::::A         D:::::D     D:::::D  E:::::::::::::::E     R::::RRRRRR:::::R     SSS::::::::SS  
+                                          L:::::L                 E::::::EEEEEEEEEE         A:::::AAAAAAAAA:::::A        D:::::D     D:::::D  E::::::EEEEEEEEEE     R::::R     R:::::R       SSSSSS::::S 
+                                          L:::::L                 E:::::E                  A:::::::::::::::::::::A       D:::::D     D:::::D  E:::::E               R::::R     R:::::R            S:::::S
+                                          L:::::L         LLLLLL  E:::::E       EEEEEE    A:::::AAAAAAAAAAAAA:::::A      D:::::D    D:::::D   E:::::E       EEEEEE  R::::R     R:::::R            S:::::S
+                                        LL:::::::LLLLLLLLL:::::LEE::::::EEEEEEEE:::::E   A:::::A             A:::::A   DDD:::::DDDDD:::::D  EE::::::EEEEEEEE:::::ERR:::::R     R:::::RSSSSSSS     S:::::S
+                                        L::::::::::::::::::::::LE::::::::::::::::::::E  A:::::A               A:::::A  D:::::::::::::::DD   E::::::::::::::::::::ER::::::R     R:::::RS::::::SSSSSS:::::S
+                                        L::::::::::::::::::::::LE::::::::::::::::::::E A:::::A                 A:::::A D::::::::::::DDD     E::::::::::::::::::::ER::::::R     R:::::RS:::::::::::::::SS 
+                                        LLLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEEAAAAAAA                   AAAAAAADDDDDDDDDDDDD        EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR SSSSSSSSSSSSSSS   
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                          "
 end
 # def self.sam_say(str)
 #     %x(say '#{str}') 
